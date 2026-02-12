@@ -12,24 +12,24 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-6 h-6" />, 
       title: 'טלפון',
-      content: '055-968-5466',
-      link: 'tel:0559685466',
+      content: '053-595-5657',
+      link: 'tel:0535955657',
     },
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-6 h-6" />, 
       title: 'אימייל',
       content: 'david82761@gmail.com',
       link: 'mailto:david82761@gmail.com',
     },
     {
-      icon: <Clock className="w-6 h-6" />,
+      icon: <Clock className="w-6 h-6" />, 
       title: 'שעות פעילות',
       content: 'א׳-ה׳: 8:00-19:00',
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
+      icon: <MapPin className="w-6 h-6" />, 
       title: 'אזור שירות',
       content: 'כל אזור המרכז',
     },
