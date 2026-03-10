@@ -135,7 +135,7 @@ const Hero = () => {
               className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center"
             >
               <Phone className="w-6 h-6 ml-2 animate-pulse" />
-              התקשר עכשיו - 053-595-5657
+              התקשר עכשיו - 055-968-5466
             </a>
             <a 
               href={whatsappLink}

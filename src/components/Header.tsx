@@ -28,7 +28,7 @@ const Header = () => {
                     className="text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
                   >
                     <Phone className="w-5 h-5 ml-1" />
-                    053-595-5657
+                    055-968-5466
                   </a>
                   <a 
                     href={whatsappLink}
