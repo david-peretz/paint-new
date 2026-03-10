@@ -6,10 +6,10 @@ const Header = () => {
 
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    return gtag_report_conversion('tel:0535955657');
+    return gtag_report_conversion('tel:0559685466');
   };
 
-  const phoneNumber = '0535955657';
+  const phoneNumber = '0559685466';
   const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
 
   return (
@@ -23,7 +23,7 @@ const Header = () => {
                 <span className="text-2xl font-bold text-blue-600 ml-2">צביעה מקצועית</span>
                 <div className="flex items-center gap-2 mr-2">
                   <a
-                    href="tel:0535955657"
+                    href="tel:0559685466"
                     onClick={handlePhoneClick}
                     className="text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
                   >
@@ -59,7 +59,7 @@ const Header = () => {
                 וואטסאפ
               </a>
               <a
-                href="tel:0535955657"
+                href="tel:0559685466"
                 onClick={handlePhoneClick}
                 className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 text-lg font-bold shadow-lg hover:shadow-xl transition-all"
               >
@@ -91,7 +91,7 @@ const Header = () => {
                 פתח וואטסאפ
               </a>
               <a
-                href="tel:0535955657"
+                href="tel:0559685466"
                 onClick={handlePhoneClick}
                 className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 text-lg font-bold shadow-lg"
               >

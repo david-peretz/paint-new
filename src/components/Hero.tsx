@@ -31,7 +31,7 @@ const Hero = () => {
     }
   ];
 
-  const phoneNumber = '0535955657';
+  const phoneNumber = '0559685466';
   const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
 
   const getNextTicketNumber = () => {
@@ -130,8 +130,8 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="tel:0535955657"
-              onClick={(e) => gtag_report_conversion('tel:0535955657')}
+              href="tel:0559685466"
+              onClick={(e) => gtag_report_conversion('tel:0559685466')}
               className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center"
             >
               <Phone className="w-6 h-6 ml-2 animate-pulse" />
