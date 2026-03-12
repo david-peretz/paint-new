@@ -117,6 +117,7 @@ const Hero = () => {
                     <td className="px-6 py-4 font-medium">{row.size}</td>
 
                     <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
+                    <td className="px-6 py-4 text-center">{row.ceiling}</td>
                   </tr>
                 ))}
               </tbody>
