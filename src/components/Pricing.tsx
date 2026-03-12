@@ -4,24 +4,15 @@ const Pricing = () => {
   const pricingData = [
     {
       size: '3 חדרים (עד 80 מ״ר)',
-      unfurnished: '2,599 ₪',
-      furnished: '3,550 ₪',
-      ceiling: '2,250 ₪'
+      furnished: '3,550 ₪'
     },
     {
       size: '4 חדרים (עד 100 מ״ר)',
-      unfurnished: '2,950 ₪',
-      furnished: '4,450 ₪',
-      ceiling: '2,450 ₪'
+      furnished: '4,450 ₪'
     },
     {
       size: '5 חדרים (עד 120 מ״ר)',
-      unfurnished: '3,050 ₪',
-      furnished: '5,500 ₪',
-      ceiling: '2,450 ₪'
-    }
-  ];
-
+      furnished: '5,50
   const includes = [
     'צבע איכותי (נירלט / טמבור)',
     'תיקוני שפכטל קלים',
@@ -42,23 +33,17 @@ const Pricing = () => {
             <thead>
               <tr className="bg-gray-50">
                 <th className="px-6 py-4 text-right">גודל דירה</th>
-                <th className="px-6 py-4 text-center">מחיר דירה לא מרוהטת</th>
-                <th className="px-6 py-4 text-center">מחיר דירה מרוהטת<br />(לא כולל תקרה)</th>
-                <th className="px-6 py-4 text-center">תוספת תקרה<br />לדירה לא מרוהטת</th>
+                <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
+
               </tr>
             </thead>
-            <tbody>
-              {pricingData.map((row, index) => (
                 <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 font-medium">{row.size}</td>
-                  <td className="px-6 py-4 text-center">{row.unfurnished}</td>
                   <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
-                  <td className="px-6 py-4 text-center">{row.ceiling}</td>
+
                 </tr>
               ))}
-            </tbody>
-          </table>
-          <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
+            </tbody> font-medium text-blue-600">{row.furnished">
             <div>* תיקוני שפכטל בלבד לא כולל ליטוש ולא כולל מע״מ</div>
             <div>* צביעת תקרה בנפרד 30 ₪ למ״ר 2 ידיים ותיקוני שפכטל</div>
           </div>
