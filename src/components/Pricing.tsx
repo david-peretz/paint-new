@@ -4,15 +4,18 @@ const Pricing = () => {
   const pricingData = [
     {
       size: '3 חדרים (עד 80 מ״ר)',
-      furnished: '3,550 ₪'
-    },
-    {
-      size: '4 חדרים (עד 100 מ״ר)',
       furnished: '4,450 ₪'
     },
     {
+      size: '4 חדרים (עד 100 מ״ר)',
+      furnished: '6,950 ₪'
+    },
+    {
       size: '5 חדרים (עד 120 מ״ר)',
-      furnished: '5,50
+      furnished: '7,450 ₪'
+    }
+  ];
+
   const includes = [
     'צבע איכותי (נירלט / טמבור)',
     'תיקוני שפכטל קלים',
@@ -34,16 +37,18 @@ const Pricing = () => {
               <tr className="bg-gray-50">
                 <th className="px-6 py-4 text-right">גודל דירה</th>
                 <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
-
               </tr>
             </thead>
+            <tbody>
+              {pricingData.map((row, index) => (
                 <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 font-medium">{row.size}</td>
                   <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
-
                 </tr>
               ))}
-            </tbody> font-medium text-blue-600">{row.furnished">
+            </tbody>
+          </table>
+          <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
             <div>* תיקוני שפכטל בלבד לא כולל ליטוש ולא כולל מע״מ</div>
             <div>* צביעת תקרה בנפרד 30 ₪ למ״ר 2 ידיים ותיקוני שפכטל</div>
           </div>
