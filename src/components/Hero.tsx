@@ -106,16 +106,16 @@ const Hero = () => {
               <thead>
                 <tr className="bg-blue-50">
                   <th className="px-6 py-4 text-right">גודל דירה</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה לא מרוהטת</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
-                  <th className="px-6 py-4 text-center">תוספת תקרה<br />לדירה לא מרוהטת</th>
+
+                  <th className="px-6 py-4 text-center">מחיר דירה </th>
+
                 </tr>
               </thead>
               <tbody>
                 {pricingData.map((row, index) => (
                   <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-medium">{row.size}</td>
-                    <td className="px-6 py-4 text-center">{row.unfurnished}</td>
+
                     <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
                     <td className="px-6 py-4 text-center">{row.ceiling}</td>
                   </tr>
