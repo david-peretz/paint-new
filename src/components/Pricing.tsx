@@ -1,22 +1,24 @@
-import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
 const Pricing = () => {
   const pricingData = [
     {
-      size: '3 חדרים (~70–80 מ״ר)',
-      empty: '3,500 ₪',
-      furnished: '3,500 ₪'
+      size: '3 חדרים (עד 80 מ״ר)',
+      unfurnished: '2,599 ₪',
+      furnished: '3,550 ₪',
+      ceiling: '2,250 ₪'
     },
     {
-      size: '4 חדרים (~90–100 מ״ר)',
-      empty: '4,400 ₪',
-      furnished: '4,400 ₪'
+      size: '4 חדרים (עד 100 מ״ר)',
+      unfurnished: '2,950 ₪',
+      furnished: '4,450 ₪',
+      ceiling: '2,450 ₪'
     },
     {
-      size: '5 חדרים (~110–120 מ״ר)',
-      empty: '5,500 ₪',
-      furnished: '5,500 ₪'
+      size: '5 חדרים (עד 120 מ״ר)',
+      unfurnished: '3,050 ₪',
+      furnished: '5,500 ₪',
+      ceiling: '2,450 ₪'
     }
   ];
 
@@ -40,16 +42,18 @@ const Pricing = () => {
             <thead>
               <tr className="bg-gray-50">
                 <th className="px-6 py-4 text-right">גודל דירה</th>
-                <th className="px-6 py-4 text-center">מחיר דירה ריקה</th>
-                <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
+                <th className="px-6 py-4 text-center">מחיר דירה לא מרוהטת</th>
+                <th className="px-6 py-4 text-center">מחיר דירה מרוהטת<br />(לא כולל תקרה)</th>
+                <th className="px-6 py-4 text-center">תוספת תקרה<br />לדירה לא מרוהטת</th>
               </tr>
             </thead>
             <tbody>
               {pricingData.map((row, index) => (
                 <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 font-medium">{row.size}</td>
-                  <td className="px-6 py-4 text-center">{row.empty}</td>
+                  <td className="px-6 py-4 text-center">{row.unfurnished}</td>
                   <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
+                  <td className="px-6 py-4 text-center">{row.ceiling}</td>
                 </tr>
               ))}
             </tbody>
@@ -74,8 +78,8 @@ const Pricing = () => {
 
         <div className="mt-12 text-center">
           <p className="text-xl font-semibold mb-6">רוצה הצעת מחיר מדויקת?</p>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             השאר פרטים עכשיו

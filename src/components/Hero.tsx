@@ -13,15 +13,21 @@ const Hero = () => {
   const pricingData = [
     {
       size: '3 חדרים (עד 80 מ״ר)',
-      furnished: '4,450 ₪'
+      unfurnished: '2,599 ₪',
+      furnished: '3,550 ₪',
+      ceiling: '2,250 ₪'
     },
     {
       size: '4 חדרים (עד 100 מ״ר)',
-      furnished: '6,950 ₪'
+      unfurnished: '2,950 ₪',
+      furnished: '4,450 ₪',
+      ceiling: '2,450 ₪'
     },
     {
       size: '5 חדרים (עד 120 מ״ר)',
-      furnished: '7,450 ₪'
+      unfurnished: '3,050 ₪',
+      furnished: '5,500 ₪',
+      ceiling: '2,450 ₪'
     }
   ];
 
@@ -38,10 +44,10 @@ const Hero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
-    
+
     setIsSubmitting(true);
     const ticketNumber = getNextTicketNumber();
-    
+
     try {
       const response = await fetch('https://formsubmit.co/ajax/david82761@gmail.com', {
         method: 'POST',
@@ -80,7 +86,7 @@ const Hero = () => {
 
   return (
     <div className="pt-20 relative min-h-screen">
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1565182999561-18d7dc61c393?auto=format&fit=crop&q=80")',
@@ -88,26 +94,30 @@ const Hero = () => {
       >
         <div className="absolute inset-0 bg-white/90"></div>
       </div>
-      
+
       <div className="relative z-10 container mx-auto px-6 py-12">
         <div className="w-full max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-8">
             מחירון צביעת דירות
           </h1>
-          
+
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden mb-8">
             <table className="w-full">
               <thead>
                 <tr className="bg-blue-50">
                   <th className="px-6 py-4 text-right">גודל דירה</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
+                  <th className="px-6 py-4 text-center">מחיר דירה לא מרוהטת</th>
+                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת<br /> (לא כולל תקרה)</th>
+                  <th className="px-6 py-4 text-center">תוספת תקרה<br />לדירה לא מרוהטת</th>
                 </tr>
               </thead>
               <tbody>
                 {pricingData.map((row, index) => (
                   <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-medium">{row.size}</td>
+                    <td className="px-6 py-4 text-center">{row.unfurnished}</td>
                     <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
+                    <td className="px-6 py-4 text-center">{row.ceiling}</td>
                   </tr>
                 ))}
               </tbody>
@@ -127,7 +137,7 @@ const Hero = () => {
               <Phone className="w-6 h-6 ml-2 animate-pulse" />
               התקשר עכשיו - 055-968-5466
             </a>
-            <a 
+            <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -189,11 +199,10 @@ const Hero = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full ${
-                  isSubmitting ? 'bg-gray-400' : 
-                  submitStatus === 'success' ? 'bg-green-600' : 
-                  'bg-blue-600 hover:bg-blue-700'
-                } text-white py-3 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center`}
+                className={`w-full ${isSubmitting ? 'bg-gray-400' :
+                  submitStatus === 'success' ? 'bg-green-600' :
+                    'bg-blue-600 hover:bg-blue-700'
+                  } text-white py-3 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center`}
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
