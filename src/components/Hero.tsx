@@ -13,21 +13,15 @@ const Hero = () => {
   const pricingData = [
     {
       size: '3 חדרים (עד 80 מ״ר)',
-      unfurnished: '2,599 ₪',
-      furnished: '4,450 ₪',
-      ceiling: '2,250 ₪'
+      furnished: '4,450 ₪'
     },
     {
       size: '4 חדרים (עד 100 מ״ר)',
-      unfurnished: '2,950 ₪',
-      furnished: '6,950 ₪',
-      ceiling: '2,450 ₪'
+      furnished: '6,950 ₪'
     },
     {
       size: '5 חדרים (עד 120 מ״ר)',
-      unfurnished: '3,050 ₪',
-      furnished: '7,450 ₪',
-      ceiling: '2,450 ₪'
+      furnished: '7,450 ₪'
     }
   ];
 
@@ -106,18 +100,14 @@ const Hero = () => {
               <thead>
                 <tr className="bg-blue-50">
                   <th className="px-6 py-4 text-right">גודל דירה</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה לא מרוהטת</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת<br/> (לא כולל תקרה)</th>
-                  <th className="px-6 py-4 text-center">תוספת תקרה<br/>לדירה לא מרוהטת</th>
+                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
                 </tr>
               </thead>
               <tbody>
                 {pricingData.map((row, index) => (
                   <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 font-medium">{row.size}</td>
-                    <td className="px-6 py-4 text-center">{row.unfurnished}</td>
                     <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
-                    <td className="px-6 py-4 text-center">{row.ceiling}</td>
                   </tr>
                 ))}
               </tbody>
