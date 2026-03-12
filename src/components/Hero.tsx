@@ -107,7 +107,7 @@ const Hero = () => {
                 <tr className="bg-blue-50">
                   <th className="px-6 py-4 text-right">גודל דירה</th>
                   <th className="px-6 py-4 text-center">מחיר דירה לא מרוהטת</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת<br /> (לא כולל תקרה)</th>
+                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
                   <th className="px-6 py-4 text-center">תוספת תקרה<br />לדירה לא מרוהטת</th>
                 </tr>
               </thead>
