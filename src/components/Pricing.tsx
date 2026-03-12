@@ -4,19 +4,19 @@ import { CheckCircle } from 'lucide-react';
 const Pricing = () => {
   const pricingData = [
     {
-      size: '3 חדרים (עד 80 מ״ר)',
-      empty: '2,599 ₪',
-      furnished: '4,450 ₪'
+      size: '3 חדרים (~70–80 מ״ר)',
+      empty: '3,500 ₪',
+      furnished: '3,500 ₪'
     },
     {
-      size: '4 חדרים (עד 100 מ״ר)',
-      empty: '2,950 ₪',
-      furnished: '6,950 ₪'
+      size: '4 חדרים (~90–100 מ״ר)',
+      empty: '4,400 ₪',
+      furnished: '4,400 ₪'
     },
     {
-      size: '5 חדרים (עד 120 מ״ר)',
-      empty: '3,050 ₪',
-      furnished: '7,450 ₪'
+      size: '5 חדרים (~110–120 מ״ר)',
+      empty: '5,500 ₪',
+      furnished: '5,500 ₪'
     }
   ];
 
