@@ -5,14 +5,17 @@ const Pricing = () => {
   const pricingData = [
     {
       size: '3 חדרים (עד 80 מ״ר)',
+      empty: '2,599 ₪',
       furnished: '4,450 ₪'
     },
     {
       size: '4 חדרים (עד 100 מ״ר)',
+      empty: '2,950 ₪',
       furnished: '6,950 ₪'
     },
     {
       size: '5 חדרים (עד 120 מ״ר)',
+      empty: '3,050 ₪',
       furnished: '7,450 ₪'
     }
   ];
@@ -37,6 +40,7 @@ const Pricing = () => {
             <thead>
               <tr className="bg-gray-50">
                 <th className="px-6 py-4 text-right">גודל דירה</th>
+                <th className="px-6 py-4 text-center">מחיר דירה ריקה</th>
                 <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
               </tr>
             </thead>
@@ -44,6 +48,7 @@ const Pricing = () => {
               {pricingData.map((row, index) => (
                 <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
                   <td className="px-6 py-4 font-medium">{row.size}</td>
+                  <td className="px-6 py-4 text-center">{row.empty}</td>
                   <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
                 </tr>
               ))}
