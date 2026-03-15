@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import Gallery from './components/Gallery';
+import Pricing from './components/Pricing';
 import About from './components/About';
 import Footer from './components/Footer';
 import AccessibilityWidget from './components/AccessibilityWidget';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Hero />
       <Services />
+      <Pricing />
       <Gallery />
       <About />
       <Footer />
