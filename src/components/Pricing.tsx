@@ -49,8 +49,7 @@ const Pricing = () => {
             </tbody>
           </table>
           <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
-            <div>* תיקוני שפכטל בלבד לא כולל ליטוש ולא כולל מע״מ</div>
-            <div>* צביעת תקרה בנפרד 30 ₪ למ״ר 2 ידיים ותיקוני שפכטל</div>
+            <div>* לא כולל מע״מ</div>
           </div>
         </div>
 
