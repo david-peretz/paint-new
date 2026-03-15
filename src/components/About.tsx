@@ -27,6 +27,8 @@ const About = () => {
 
   const galleryImages = [
     'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1578926078328-123456789012?auto=format&fit=crop&q=80',
   ];
 
   return (
@@ -35,18 +37,18 @@ const About = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="lg:w-1/2">
             <div className="relative">
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {galleryImages.map((image, index) => (
-                  <div 
-                    key={index} 
-                    className="relative overflow-hidden rounded-xl shadow-lg"
+                  <div
+                    key={index}
+                    className="relative overflow-hidden rounded-xl shadow-lg group"
                   >
-                    <img 
+                    <img
                       src={image}
                       alt="עבודות צביעה"
-                      className="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500"
+                      className="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 ))}
               </div>
