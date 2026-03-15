@@ -28,8 +28,8 @@ const Services = () => {
       icon: <Paintbrush className="w-12 h-12 text-blue-600" />,
       title: 'עבודות מיוחדות',
       description: 'צביעה דקורטיבית, אפקטים מיוחדים ופתרונות מותאמים אישית',
-      // image: '/image.png',
-      // hoverImage: '/image.png'
+      image: '/image.png',
+      hoverImage: '/image.png'
     },
   ];
 
