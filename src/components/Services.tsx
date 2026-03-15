@@ -21,18 +21,15 @@ const Services = () => {
       icon: <Building2 className="w-12 h-12 text-blue-600" />,
       title: 'צביעת מבנים מסחריים',
       description: 'שירותי צביעה מקצועיים למשרדים, חנויות ומבני תעשייה',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80',
-      hoverImage: 'https://images.unsplash.com/photo-1591078615031-a57ddf64cb90?auto=format&fit=crop&q=80'
+      image: '/image2.png',
+      hoverImage: '/image2.png'
     },
     {
       icon: <Paintbrush className="w-12 h-12 text-blue-600" />,
       title: 'עבודות מיוחדות',
       description: 'צביעה דקורטיבית, אפקטים מיוחדים ופתרונות מותאמים אישית',
-
-      //image: '/image.png',
-      //  hoverImage: '/image.png'
-      // image: '/image.png',
-      // hoverImage: '/image.png'
+      image: '/image1.png',
+      hoverImage: '/image1.png'
     },
   ];
 
