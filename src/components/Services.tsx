@@ -28,8 +28,8 @@ const Services = () => {
       icon: <Paintbrush className="w-12 h-12 text-blue-600" />,
       title: 'עבודות מיוחדות',
       description: 'צביעה דקורטיבית, אפקטים מיוחדים ופתרונות מותאמים אישית',
-      image: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80',
-      hoverImage: 'https://images.unsplash.com/photo-1565886215895-23f425c0b9cd?auto=format&fit=crop&q=80'
+      image: '/painter.jpg',
+      hoverImage: '/painter.jpg'
     },
   ];
 
@@ -42,13 +42,13 @@ const Services = () => {
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
+                <img
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                 />
