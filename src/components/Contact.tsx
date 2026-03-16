@@ -12,24 +12,24 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Phone className="w-6 h-6" />, 
+      icon: <Phone className="w-6 h-6" />,
       title: 'טלפון',
-      content: '055-968-5466',
-      link: 'tel:0559685466',
+      content: '054-305-1679',
+      link: 'tel:0543051679',
     },
     {
-      icon: <Mail className="w-6 h-6" />, 
+      icon: <Mail className="w-6 h-6" />,
       title: 'אימייל',
       content: 'david82761@gmail.com',
       link: 'mailto:david82761@gmail.com',
     },
     {
-      icon: <Clock className="w-6 h-6" />, 
+      icon: <Clock className="w-6 h-6" />,
       title: 'שעות פעילות',
       content: 'א׳-ה׳: 8:00-19:00',
     },
     {
-      icon: <MapPin className="w-6 h-6" />, 
+      icon: <MapPin className="w-6 h-6" />,
       title: 'אזור שירות',
       content: 'כל אזור המרכז',
     },
@@ -54,9 +54,9 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const ticketNumber = getNextTicketNumber();
-    
+
     try {
       const response = await fetch('https://formsubmit.co/ajax/david82761@gmail.com', {
         method: 'POST',
@@ -104,8 +104,8 @@ const Contact = () => {
               <div className="flex justify-center mb-4 text-blue-600">{info.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
               {info.link ? (
-                <a 
-                  href={info.link} 
+                <a
+                  href={info.link}
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                   target={info.link.startsWith('mailto:') ? '_blank' : undefined}
                   rel={info.link.startsWith('mailto:') ? 'noopener noreferrer' : undefined}
@@ -170,9 +170,8 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full ${
-                isSubmitting ? 'bg-gray-400' : submitStatus === 'success' ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'
-              } text-white py-3 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center`}
+              className={`w-full ${isSubmitting ? 'bg-gray-400' : submitStatus === 'success' ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'
+                } text-white py-3 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center`}
             >
               {isSubmitting ? (
                 <span className="flex items-center gap-2">

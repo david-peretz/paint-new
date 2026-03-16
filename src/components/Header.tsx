@@ -6,10 +6,10 @@ const Header = () => {
 
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    return gtag_report_conversion('tel:0559685466');
+    return gtag_report_conversion('tel:0543051679');
   };
 
-  const phoneNumber = '0559685466';
+  const phoneNumber = '0543051679';
   const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
 
   return (
@@ -23,14 +23,14 @@ const Header = () => {
                 <span className="text-2xl font-bold text-blue-600 ml-2">צביעה מקצועית</span>
                 <div className="flex items-center gap-2 mr-2">
                   <a
-                    href="tel:0559685466"
+                    href="tel:0543051679"
                     onClick={handlePhoneClick}
                     className="text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
                   >
                     <Phone className="w-5 h-5 ml-1" />
-                    055-968-5466
+                    054-305-1679
                   </a>
-                  <a 
+                  <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -42,14 +42,14 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8 space-x-reverse">
             <a href="#contact" className="text-gray-700 hover:text-blue-600">צור קשר</a>
             <a href="#services" className="text-gray-700 hover:text-blue-600">שירותים</a>
             <a href="#pricing" className="text-gray-700 hover:text-blue-600">מחירון</a>
             <a href="#about" className="text-gray-700 hover:text-blue-600">אודות</a>
             <div className="flex items-center gap-2">
-              <a 
+              <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,7 +59,7 @@ const Header = () => {
                 וואטסאפ
               </a>
               <a
-                href="tel:0559685466"
+                href="tel:0543051679"
                 onClick={handlePhoneClick}
                 className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 text-lg font-bold shadow-lg hover:shadow-xl transition-all"
               >
@@ -81,7 +81,7 @@ const Header = () => {
             <a href="#pricing" className="block py-2 text-gray-700 hover:text-blue-600">מחירון</a>
             <a href="#about" className="block py-2 text-gray-700 hover:text-blue-600">אודות</a>
             <div className="flex flex-col gap-2 mt-4">
-              <a 
+              <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -91,7 +91,7 @@ const Header = () => {
                 פתח וואטסאפ
               </a>
               <a
-                href="tel:0559685466"
+                href="tel:0543051679"
                 onClick={handlePhoneClick}
                 className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 text-lg font-bold shadow-lg"
               >
