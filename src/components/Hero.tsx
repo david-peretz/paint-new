@@ -112,23 +112,16 @@ const Hero = () => {
           </h1>
 
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden mb-8">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-blue-50">
-                  <th className="px-8 py-6 text-right text-xl font-semibold">גודל דירה</th>
-                  <th className="px-8 py-6 text-center text-xl font-semibold">מחיר החל מ</th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricingData.map((row, index) => (
-                  <tr key={index} className="border-t border-gray-200 hover:bg-blue-50 transition-colors">
-                    <td className="px-8 py-6 font-medium text-lg">{row.size}</td>
-                    <td className="px-8 py-6 text-center font-bold text-blue-600 text-xl">{row.furnished}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="px-8 py-4 bg-gray-100 text-sm text-gray-700">
+            <div className="px-10 py-10">
+              {pricingData.map((row, index) => (
+                <div key={index} className="mb-6">
+                  <div className="text-3xl md:text-4xl font-bold text-center">
+                    מחירון – {row.size} החל מ {row.furnished}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="px-10 py-6 bg-gray-100 text-sm text-gray-700">
               <div className="text-lg font-medium">* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
               בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
             </div>
