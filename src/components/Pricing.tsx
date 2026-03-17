@@ -91,16 +91,6 @@ const Pricing = () => {
             </div>
           </div>
 
-          <div className="mt-16 text-center">
-            <p className="text-2xl font-semibold mb-8 text-gray-800">רוצה הצעת מחיר מדויקת ומקצועית?</p>
-            <p className="text-lg text-gray-600 mb-8">אנחנו נגיע אליכם לבית, נעריך את המצב ונתן הצעה מותאמת אישית</p>
-            <a
-              href="#contact"
-              className="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-            >
-              השאר פרטים עכשיו
-            </a>
-          </div>
         </div>
       </div>
     </section>
