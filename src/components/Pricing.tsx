@@ -76,7 +76,7 @@ const Pricing = () => {
             </div>
           </div>
 
-          <div className="mt-16 bg-white rounded-xl shadow-2xl p-12">
+          <div className="mt-24 bg-white rounded-xl shadow-2xl p-12">
             <h3 className="text-3xl font-bold mb-8 text-center">מה כלול במחיר?</h3>
             <p className="text-gray-600 text-center mb-8 text-lg">
               כל שירות שלנו מגיע עם חבילה מלאה של שירותים מקצועיים כדי להבטיח תוצאה מושלמת
