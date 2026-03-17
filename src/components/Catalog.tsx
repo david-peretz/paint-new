@@ -10,6 +10,11 @@ const images = [
     src: '/cat2.png',
     alt: 'תמונת דירה צבועה - CAT2',
     title: 'דירה צבועה - CAT2'
+  },
+  {
+    src: '/cat3.png',
+    alt: 'תמונת דירה צבועה - CAT3',
+    title: 'דירה צבועה - CAT3'
   }
 ];
 
