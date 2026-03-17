@@ -45,6 +45,7 @@ const Header = () => {
 
           <div className="hidden md:flex items-center space-x-8 space-x-reverse">
             <a href="#contact" className="text-gray-700 hover:text-blue-600">צור קשר</a>
+            <a href="#catalog" className="text-gray-700 hover:text-blue-600">קטלוג</a>
             <a href="#services" className="text-gray-700 hover:text-blue-600">שירותים</a>
             <a href="#pricing" className="text-gray-700 hover:text-blue-600">מחירון</a>
             <a href="#about" className="text-gray-700 hover:text-blue-600">אודות</a>
@@ -77,6 +78,7 @@ const Header = () => {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4">
             <a href="#contact" className="block py-2 text-gray-700 hover:text-blue-600">צור קשר</a>
+            <a href="#catalog" className="block py-2 text-gray-700 hover:text-blue-600">קטלוג</a>
             <a href="#services" className="block py-2 text-gray-700 hover:text-blue-600">שירותים</a>
             <a href="#pricing" className="block py-2 text-gray-700 hover:text-blue-600">מחירון</a>
             <a href="#about" className="block py-2 text-gray-700 hover:text-blue-600">אודות</a>

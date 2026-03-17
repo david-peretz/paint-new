@@ -10,36 +10,6 @@ const Hero = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const pricingData = [
-    {
-      size: 'דירת חדר / סטודיו',
-      furnished: '640 ₪'
-    },
-    {
-      size: '2 חדרים',
-      furnished: '1,140 ₪'
-    },
-    {
-      size: '3 חדרים',
-      furnished: '1,440 ₪'
-    },
-    {
-      size: '4 חדרים',
-      furnished: '1,640 ₪'
-    },
-    {
-      size: '5 חדרים',
-      furnished: '1,940 ₪'
-    },
-    {
-      size: '6 חדרים/בית פרטי',
-      furnished: '2,440 ₪'
-    },
-    {
-      size: 'צביעת משרדים',
-      furnished: '440 ₪ לחדר'
-    }
-  ];
 
   const phoneNumber = '0543051679';
   const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
@@ -107,25 +77,12 @@ const Hero = () => {
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         <div className="w-full max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-8">
-            מחירון צביעת דירות
+          <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-6">
+            צבעו את הבית שלכם בסטייל מקצועי
           </h1>
-
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden mb-8">
-            <div className="px-10 py-10">
-              {pricingData.map((row, index) => (
-                <div key={index} className="mb-6">
-                  <div className="text-3xl md:text-4xl font-bold text-center">
-                    מחירון – {row.size} החל מ {row.furnished}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="px-10 py-6 bg-gray-100 text-sm text-gray-700">
-              <div className="text-lg font-medium">* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
-              בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
-            </div>
-          </div>
+          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-10 text-lg">
+            הצוות המנוסה שלנו מבצע צביעה מקצועית בקפידה, תוך שמירה על סדר וניקיון.
+            להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
