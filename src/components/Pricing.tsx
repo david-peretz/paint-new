@@ -73,21 +73,9 @@ const Pricing = () => {
             <div className="px-10 py-6 bg-gray-100 text-sm text-gray-700">
               <div className="text-lg font-medium">* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
               בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
-            </div>
-          </div>
-
-          <div className="mt-24 bg-white rounded-xl shadow-2xl p-12">
-            <h3 className="text-3xl font-bold mb-8 text-center">מה כלול במחיר?</h3>
-            <p className="text-gray-600 text-center mb-8 text-lg">
-              כל שירות שלנו מגיע עם חבילה מלאה של שירותים מקצועיים כדי להבטיח תוצאה מושלמת
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              {includes.map((item, index) => (
-                <div key={index} className="flex items-center">
-                  <CheckCircle className="w-6 h-6 text-blue-600 ml-3" />
-                  <span className="text-lg">{item}</span>
-                </div>
-              ))}
+              <div className="mt-6 text-gray-700 text-base leading-relaxed">
+                כל שירות שלנו מגיע עם חבילה מלאה של שירותים מקצועיים: תיקוני שפכטל קלים, הגנה על רהיטים ורצפה, ניקיון בסיסי בסיום, ועוד.
+              </div>
             </div>
           </div>
 
