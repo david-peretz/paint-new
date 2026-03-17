@@ -13,10 +13,10 @@ function App() {
     <div className="min-h-screen bg-white" dir="rtl">
       <Header />
       <Pricing />
+      <Catalog />
       <Hero />
       <Services />
       <About />
-      <Catalog />
       <Footer />
       <AccessibilityWidget />
     </div>
