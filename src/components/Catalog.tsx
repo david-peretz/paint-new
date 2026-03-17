@@ -2,24 +2,24 @@ import React from 'react';
 
 const images = [
   {
-    src: 'https://images.unsplash.com/photo-1581578012389-996de0cdbf8a?auto=format&fit=crop&w=1200&q=80',
-    alt: 'סלון עם קיר תכלת ותאורה טבעית',
-    title: 'סלון תכלת ואוירה נעימה'
+    src: '/cat1.png',
+    alt: 'תמונת דירה צבועה - CAT1',
+    title: 'דירה צבועה - CAT1'
   },
   {
-    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
-    alt: 'מטבח לבן עם קירות תכלת בהירים',
-    title: 'מטבח בהצלחות תכלת'
+    src: '/cat2.png',
+    alt: 'תמונת דירה צבועה - CAT2',
+    title: 'דירה צבועה - CAT2'
   },
   {
-    src: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80',
-    alt: 'חדר שינה עם קיר תכלת עדין ואור טבעי',
-    title: 'חדר שינה בצבע תכלת'
+    src: '/image1.png',
+    alt: 'תמונת דירה צבועה - תמונה 1',
+    title: 'פרויקט צביעה 1'
   },
   {
-    src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80',
-    alt: 'פינת אוכל עם קיר תכלת בהיר',
-    title: 'פינת אוכל נעימה בצבע תכלת'
+    src: '/image2.png',
+    alt: 'תמונת דירה צבועה - תמונה 2',
+    title: 'פרויקט צביעה 2'
   }
 ];
 
