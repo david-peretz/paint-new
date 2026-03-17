@@ -12,22 +12,32 @@ const Hero = () => {
 
   const pricingData = [
     {
-      size: '3 חדרים (עד 80 מ״ר)',
-      unfurnished: '2,599 ₪',
-      furnished: '3,550 ₪',
-      ceiling: '2,250 ₪'
+      size: 'דירת חדר / סטודיו',
+      furnished: '690 ₪'
     },
     {
-      size: '4 חדרים (עד 100 מ״ר)',
-      unfurnished: '2,950 ₪',
-      furnished: '4,450 ₪',
-      ceiling: '2,450 ₪'
+      size: '2 חדרים',
+      furnished: '1,190 ₪'
     },
     {
-      size: '5 חדרים (עד 120 מ״ר)',
-      unfurnished: '3,050 ₪',
-      furnished: '5,500 ₪',
-      ceiling: '2,450 ₪'
+      size: '3 חדרים',
+      furnished: '1,490 ₪'
+    },
+    {
+      size: '4 חדרים',
+      furnished: '1,690 ₪'
+    },
+    {
+      size: '5 חדרים',
+      furnished: '1,990 ₪'
+    },
+    {
+      size: '6 חדרים/בית פרטי',
+      furnished: '2,490 ₪'
+    },
+    {
+      size: 'צביעת משרדים',
+      furnished: '490 ₪ לחדר'
     }
   ];
 
@@ -107,7 +117,7 @@ const Hero = () => {
                 <tr className="bg-blue-50">
                   <th className="px-6 py-4 text-right">גודל דירה</th>
 
-                  <th className="px-6 py-4 text-center">מחיר דירה </th>
+                  <th className="px-6 py-4 text-center">מחיר החל מ</th>
 
                 </tr>
               </thead>
@@ -122,7 +132,8 @@ const Hero = () => {
               </tbody>
             </table>
             <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
-              <div>* לא כולל מע״מ</div>
+              <div>* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
+              בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
             </div>
           </div>
 

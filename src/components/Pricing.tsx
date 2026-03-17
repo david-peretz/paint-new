@@ -3,16 +3,32 @@ import { CheckCircle } from 'lucide-react';
 const Pricing = () => {
   const pricingData = [
     {
-      size: '3 חדרים (עד 80 מ״ר)',
-      furnished: '4,450 ₪'
+      size: 'דירת חדר / סטודיו',
+      furnished: '690 ₪'
     },
     {
-      size: '4 חדרים (עד 100 מ״ר)',
-      furnished: '6,950 ₪'
+      size: '2 חדרים',
+      furnished: '1,190 ₪'
     },
     {
-      size: '5 חדרים (עד 120 מ״ר)',
-      furnished: '7,450 ₪'
+      size: '3 חדרים',
+      furnished: '1,490 ₪'
+    },
+    {
+      size: '4 חדרים',
+      furnished: '1,690 ₪'
+    },
+    {
+      size: '5 חדרים',
+      furnished: '1,990 ₪'
+    },
+    {
+      size: '6 חדרים/בית פרטי',
+      furnished: '2,490 ₪'
+    },
+    {
+      size: 'צביעת משרדים',
+      furnished: '490 ₪ לחדר'
     }
   ];
 
@@ -48,7 +64,7 @@ const Pricing = () => {
               <thead>
                 <tr className="bg-gray-50">
                   <th className="px-6 py-4 text-right">גודל דירה</th>
-                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
+                  <th className="px-6 py-4 text-center">מחיר החל מ</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,7 +77,8 @@ const Pricing = () => {
               </tbody>
             </table>
             <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
-              <div>* לא כולל מע״מ</div>
+              <div>* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
+              בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
             </div>
           </div>
 
