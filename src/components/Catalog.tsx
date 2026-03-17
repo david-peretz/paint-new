@@ -2,34 +2,24 @@ import React from 'react';
 
 const images = [
   {
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    alt: 'סלון צבוע בגוון טורקיז',
-    title: 'סלון מודרני בגוון טורקיז'
+    src: 'https://images.unsplash.com/photo-1581578012389-996de0cdbf8a?auto=format&fit=crop&w=1200&q=80',
+    alt: 'סלון עם קיר תכלת ותאורה טבעית',
+    title: 'סלון תכלת ואוירה נעימה'
   },
   {
-    src: 'https://images.unsplash.com/photo-1618221527692-1f50df4c0f8c?auto=format&fit=crop&w=1200&q=80',
-    alt: 'חדר שינה עם קיר בצבע אפרסק',
-    title: 'חדר שינה בגוון אפרסק'
+    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80',
+    alt: 'מטבח לבן עם קירות תכלת בהירים',
+    title: 'מטבח בהצלחות תכלת'
   },
   {
-    src: 'https://images.unsplash.com/photo-1600585154457-42f69f3ad4c9?auto=format&fit=crop&w=1200&q=80',
-    alt: 'מטבח לבן עם קיר ירקרק',
-    title: 'מטבח נקי בגוון ירוק'
+    src: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=80',
+    alt: 'חדר שינה עם קיר תכלת עדין ואור טבעי',
+    title: 'חדר שינה בצבע תכלת'
   },
   {
-    src: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80',
-    alt: 'חדר עבודה עם צבע קיר כסוף',
-    title: 'חדר עבודה בצבע כסף'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1600585154355-0b0c746d3dca?auto=format&fit=crop&w=1200&q=80',
-    alt: 'חדר ילדים עם קיר צבעוני',
-    title: 'חדר ילדים צבעוני'
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1600585154342-38c0cd2e3bb0?auto=format&fit=crop&w=1200&q=80',
-    alt: 'מסדרון בצבעים רגועים',
-    title: 'מסדרון בצבעים רגועים'
+    src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80',
+    alt: 'פינת אוכל עם קיר תכלת בהיר',
+    title: 'פינת אוכל נעימה בצבע תכלת'
   }
 ];
 
