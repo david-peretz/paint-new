@@ -13,31 +13,31 @@ const Hero = () => {
   const pricingData = [
     {
       size: 'דירת חדר / סטודיו',
-      furnished: '690 ₪'
+      furnished: '640 ₪'
     },
     {
       size: '2 חדרים',
-      furnished: '1,190 ₪'
+      furnished: '1,140 ₪'
     },
     {
       size: '3 חדרים',
-      furnished: '1,490 ₪'
+      furnished: '1,440 ₪'
     },
     {
       size: '4 חדרים',
-      furnished: '1,690 ₪'
+      furnished: '1,640 ₪'
     },
     {
       size: '5 חדרים',
-      furnished: '1,990 ₪'
+      furnished: '1,940 ₪'
     },
     {
       size: '6 חדרים/בית פרטי',
-      furnished: '2,490 ₪'
+      furnished: '2,440 ₪'
     },
     {
       size: 'צביעת משרדים',
-      furnished: '490 ₪ לחדר'
+      furnished: '440 ₪ לחדר'
     }
   ];
 
@@ -115,24 +115,21 @@ const Hero = () => {
             <table className="w-full">
               <thead>
                 <tr className="bg-blue-50">
-                  <th className="px-6 py-4 text-right">גודל דירה</th>
-
-                  <th className="px-6 py-4 text-center">מחיר החל מ</th>
-
+                  <th className="px-8 py-6 text-right text-xl font-semibold">גודל דירה</th>
+                  <th className="px-8 py-6 text-center text-xl font-semibold">מחיר החל מ</th>
                 </tr>
               </thead>
               <tbody>
                 {pricingData.map((row, index) => (
-                  <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4 font-medium">{row.size}</td>
-
-                    <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
+                  <tr key={index} className="border-t border-gray-200 hover:bg-blue-50 transition-colors">
+                    <td className="px-8 py-6 font-medium text-lg">{row.size}</td>
+                    <td className="px-8 py-6 text-center font-bold text-blue-600 text-xl">{row.furnished}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
-              <div>* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
+            <div className="px-8 py-4 bg-gray-100 text-sm text-gray-700">
+              <div className="text-lg font-medium">* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
               בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
             </div>
           </div>
