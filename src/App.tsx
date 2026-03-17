@@ -14,8 +14,6 @@ function App() {
       <Header />
       <Hero />
       <Services />
-
-
       <About />
       <Footer />
       <AccessibilityWidget />
