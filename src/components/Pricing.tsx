@@ -45,7 +45,7 @@ const Pricing = () => {
       id="pricing"
       className="py-24 relative"
       style={{
-        backgroundImage: 'url("/painter-bg.jpg")',
+        backgroundImage: 'url("/image1.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
