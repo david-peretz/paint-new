@@ -3,32 +3,16 @@ import { CheckCircle } from 'lucide-react';
 const Pricing = () => {
   const pricingData = [
     {
-      size: 'דירת חדר / סטודיו',
-      furnished: '640 ₪'
+      size: '3 חדרים (עד 80 מ״ר)',
+      furnished: '3,500 ₪'
     },
     {
-      size: '2 חדרים',
-      furnished: '1,140 ₪'
+      size: '4 חדרים (עד 100 מ״ר)',
+      furnished: '4,400 ₪'
     },
     {
-      size: '3 חדרים',
-      furnished: '1,440 ₪'
-    },
-    {
-      size: '4 חדרים',
-      furnished: '1,640 ₪'
-    },
-    {
-      size: '5 חדרים',
-      furnished: '1,940 ₪'
-    },
-    {
-      size: '6 חדרים/בית פרטי',
-      furnished: '2,440 ₪'
-    },
-    {
-      size: 'צביעת משרדים',
-      furnished: '440 ₪ לחדר'
+      size: '5 חדרים (עד 120 מ״ר)',
+      furnished: '5,500 ₪'
     }
   ];
 
@@ -43,42 +27,65 @@ const Pricing = () => {
   return (
     <section
       id="pricing"
-      className="py-24 relative"
+      className="py-20 relative"
       style={{
-        backgroundImage: 'url("/image1.png")',
+        backgroundImage: 'url("/painter-bg.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute inset-0 bg-white/90"></div>
+      <div className="absolute inset-0 bg-white/85"></div>
       <div className="relative z-10">
         <div className="container mx-auto px-6">
-          <h2 className="text-5xl font-bold text-center mb-12 text-blue-800">מחירון צביעת דירות</h2>
-          <p className="text-gray-700 text-center max-w-4xl mx-auto mb-16 text-lg leading-relaxed">
-            המחירים שלנו כוללים עבודה מקצועית עם חומרים איכותיים ביותר, צוות מנוסה ומיומן, 
-            והתחייבות לאיכות גבוהה. כל פרויקט מתחיל בהערכה חינמית וייעוץ מקצועי כדי להתאים את הפתרון המדויק לצרכים שלכם.
+          <h2 className="text-4xl font-bold text-center mb-8">מחירון צביעת דירות</h2>
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+            המחירים כוללים עבודה מקצועית עם חומרים איכותיים
           </p>
 
-          <div className="bg-white rounded-xl shadow-2xl mb-16">
-            <div className="px-10 py-10">
-              {pricingData.map((row, index) => (
-                <div key={index} className="mb-6">
-                  <div className="text-3xl md:text-4xl font-bold text-center">
-                    מחירון – {row.size} החל מ {row.furnished}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="px-10 py-6 bg-gray-100 text-sm text-gray-700">
-              <div className="text-lg font-medium">* המחירים לצביעת קירות + תיקונים בדירה ריקה מריהוט, <br />
-              בגוון דומה בהתאם למצב הקירות. לא כולל תיקרות.</div>
-              <div className="mt-6 text-gray-700 text-base leading-relaxed">
-                כל שירות שלנו מגיע עם חבילה מלאה של שירותים מקצועיים: תיקוני שפכטל קלים, הגנה על רהיטים ורצפה, ניקיון בסיסי בסיום, ועוד.
-              </div>
+          <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-50">
+                  <th className="px-6 py-4 text-right">גודל דירה</th>
+                  <th className="px-6 py-4 text-center">מחיר דירה מרוהטת</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pricingData.map((row, index) => (
+                  <tr key={index} className="border-t hover:bg-gray-50 transition-colors">
+                    <td className="px-6 py-4 font-medium">{row.size}</td>
+                    <td className="px-6 py-4 text-center font-medium text-blue-600">{row.furnished}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="px-6 py-3 bg-gray-50 text-sm text-gray-600">
+              <div>* לא כולל מע״מ</div>
             </div>
           </div>
 
+          <div className="mt-12 bg-white rounded-lg shadow-lg p-8">
+            <h3 className="text-2xl font-bold mb-6">מה כלול במחיר?</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              {includes.map((item, index) => (
+                <div key={index} className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 ml-2" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-xl font-semibold mb-6">רוצה הצעת מחיר מדויקת?</p>
+            <a
+              href="#contact"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              השאר פרטים עכשיו
+            </a>
+          </div>
         </div>
       </div>
     </section>
