@@ -1,5 +1,11 @@
 import React from 'react';
-import { CheckCircle, Lightbulb, Phone, MessageCircle } from 'lucide-react';
+import { CheckCircle, Phone, MessageCircle } from 'lucide-react';
+
+type PricingRow = {
+  type: string;
+  totalAdditions: number;
+  furnishedPrice: number;
+};
 
 const Pricing = () => {
   const phoneNumber = '0543051679';
@@ -10,27 +16,21 @@ const Pricing = () => {
     return gtag_report_conversion('tel:0543051679');
   };
 
-  const pricingData = [
+  const pricingData: PricingRow[] = [
     {
       type: '3 חדרים',
-      furnitureAddition: '+₪1,500',
-      ceilingAddition: '+₪610',
-      totalAdditions: '+₪2,110',
-      finalPrice: '₪3,550'
+      totalAdditions: 550,
+      furnishedPrice: 3550
     },
     {
       type: '4 חדרים',
-      furnitureAddition: '+₪1,900',
-      ceilingAddition: '+₪860',
-      totalAdditions: '+₪2,760',
-      finalPrice: '₪4,400'
+      totalAdditions: 600,
+      furnishedPrice: 4400
     },
     {
       type: '5 חדרים',
-      furnitureAddition: '+₪2,400',
-      ceilingAddition: '+₪1,160',
-      totalAdditions: '+₪3,560',
-      finalPrice: '₪5,500'
+      totalAdditions: 700,
+      furnishedPrice: 5500
     }
   ];
 
@@ -41,6 +41,8 @@ const Pricing = () => {
     'ניקיון בסיסי בסיום',
     'לא כולל מע"מ'
   ];
+
+  const formatCurrency = (value: number) => `₪${value.toLocaleString('en-US')}`;
 
   return (
     <section
@@ -82,32 +84,54 @@ const Pricing = () => {
           </p>
 
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="px-6 py-5 border-b bg-amber-50/40 flex items-center justify-end gap-3" dir="rtl">
-              <Lightbulb className="w-6 h-6 text-amber-500" />
-              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">המלצה לפיצול התוספות</h3>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[900px]" dir="rtl">
+            <div className="md:hidden">
+              <table className="w-full" dir="rtl">
                 <thead>
                   <tr className="bg-gray-50 border-b">
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר סופי</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">סה״כ תוספות</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">תוספת תקרות</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">תוספת ריהוט</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">סוג דירה</th>
+                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">גודל דירה</th>
+                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">לא מרוהטת</th>
+                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">מרוהטת</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {pricingData.map((row, index) => (
-                    <tr key={index} className="border-b last:border-b-0 hover:bg-gray-50 transition-colors">
-                      <td className="px-6 py-5 text-2xl md:text-3xl font-extrabold text-blue-700 whitespace-nowrap">{row.finalPrice}</td>
-                      <td className="px-6 py-5 text-xl md:text-2xl font-extrabold text-gray-800 whitespace-nowrap">{row.totalAdditions}</td>
-                      <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-800 whitespace-nowrap">{row.ceilingAddition}</td>
-                      <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-800 whitespace-nowrap">{row.furnitureAddition}</td>
-                      <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-900 whitespace-nowrap">{row.type}</td>
-                    </tr>
-                  ))}
+                  {pricingData.map((row, index) => {
+                    const unfurnishedPrice = row.furnishedPrice - row.totalAdditions;
+
+                    return (
+                      <tr key={`mobile-${index}`} className="border-b last:border-b-0">
+                        <td className="px-3 py-4 text-base font-bold text-gray-900 whitespace-nowrap">{row.type}</td>
+                        <td className="px-3 py-4 text-lg font-bold text-gray-800 whitespace-nowrap">{formatCurrency(unfurnishedPrice)}</td>
+                        <td className="px-3 py-4 text-xl font-extrabold text-blue-700 whitespace-nowrap">{formatCurrency(row.furnishedPrice)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full min-w-[900px]" dir="rtl">
+                <thead>
+                  <tr className="bg-gray-50 border-b">
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">גודל דירה</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר דירה לא מרוהטת</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">סה״כ תוספות</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר דירה מרוהטת</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pricingData.map((row, index) => {
+                    const unfurnishedPrice = row.furnishedPrice - row.totalAdditions;
+
+                    return (
+                      <tr key={`desktop-${index}`} className="border-b last:border-b-0 hover:bg-gray-50 transition-colors">
+                        <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-900 whitespace-nowrap">{row.type}</td>
+                        <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-800 whitespace-nowrap">{formatCurrency(unfurnishedPrice)}</td>
+                        <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-800 whitespace-nowrap">+{formatCurrency(row.totalAdditions)}</td>
+                        <td className="px-6 py-5 text-2xl md:text-3xl font-extrabold text-blue-700 whitespace-nowrap">{formatCurrency(row.furnishedPrice)}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
