@@ -116,7 +116,6 @@ const Pricing = () => {
                   <tr className="bg-gray-50 border-b">
                     <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">גודל דירה</th>
                     <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר דירה לא מרוהטת</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">סה״כ תוספות</th>
                     <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר דירה מרוהטת</th>
                   </tr>
                 </thead>
@@ -128,7 +127,6 @@ const Pricing = () => {
                       <tr key={`desktop-${index}`} className="border-b last:border-b-0 hover:bg-gray-50 transition-colors">
                         <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-900 whitespace-nowrap">{row.type}</td>
                         <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-800 whitespace-nowrap">{formatCurrency(unfurnishedPrice)}</td>
-                        <td className="px-6 py-5 text-xl md:text-2xl font-bold text-gray-800 whitespace-nowrap">+{formatCurrency(row.totalAdditions)}</td>
                         <td className="px-6 py-5 text-2xl md:text-3xl font-extrabold text-blue-700 whitespace-nowrap">{formatCurrency(row.furnishedPrice)}</td>
                       </tr>
                     );
