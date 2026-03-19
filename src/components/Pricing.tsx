@@ -18,36 +18,36 @@ const Pricing = () => {
 
   const pricingData: PricingRow[] = [
     {
-      type: '3 חדרים',
+      type: '3 ×—×“×¨×™×',
       totalAdditions: 550,
       furnishedPrice: 3550
     },
     {
-      type: '4 חדרים',
+      type: '4 ×—×“×¨×™×',
       totalAdditions: 600,
       furnishedPrice: 4400
     },
     {
-      type: '5 חדרים',
+      type: '5 ×—×“×¨×™×',
       totalAdditions: 700,
       furnishedPrice: 5500
     }
   ];
 
   const includes = [
-    'צבע איכותי (נירלט / טמבור)',
-    'תיקוני שפכטל קלים',
-    'הגנה על רהיטים ורצפה',
-    'ניקיון בסיסי בסיום',
-    'לא כולל מע"מ'
+    '×¦×‘×¢ ××™×›×•×ª×™ (× ×™×¨×œ×˜ / ×˜×ž×‘×•×¨)',
+    '×ª×™×§×•× ×™ ×©×¤×›×˜×œ ×§×œ×™×',
+    '×”×’× ×” ×¢×œ ×¨×”×™×˜×™× ×•×¨×¦×¤×”',
+    '× ×™×§×™×•×Ÿ ×‘×¡×™×¡×™ ×‘×¡×™×•×',
+    '×œ× ×›×•×œ×œ ×ž×¢"×ž'
   ];
 
-  const formatCurrency = (value: number) => `₪${value.toLocaleString('en-US')}`;
+  const formatCurrency = (value: number) => `â‚ª${value.toLocaleString('en-US')}`;
 
   return (
     <section
       id="pricing"
-      className="py-20 relative"
+      className="py-12 md:py-20 relative"
       style={{
         backgroundImage: 'url("/painter-bg.jpg")',
         backgroundSize: 'cover',
@@ -57,30 +57,30 @@ const Pricing = () => {
     >
       <div className="absolute inset-0 bg-white/85"></div>
       <div className="relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-4 justify-center mb-6 md:mb-12">
             <a
               href="tel:0543051679"
               onClick={handlePhoneClick}
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center"
+              className="bg-blue-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center leading-tight"
             >
-              <Phone className="w-6 h-6 ml-2 animate-pulse" />
-              התקשר עכשיו 054-305-1679
+              <Phone className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 animate-pulse shrink-0" />
+              ×”×ª×§×©×¨ ×¢×›×©×™×• 054-305-1679
             </a>
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center"
+              className="bg-green-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center leading-tight"
             >
-              <MessageCircle className="w-6 h-6 ml-2" />
-              שלח הודעה בוואטסאפ
+              <MessageCircle className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 shrink-0" />
+              ×©×œ×— ×”×•×“×¢×” ×‘×•×•××˜×¡××¤
             </a>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-8">מחירון צביעת דירות</h2>
-          <p className="text-xl md:text-2xl font-semibold text-gray-700 text-center max-w-4xl mx-auto mb-12">
-            המחירים כוללים עבודה מקצועית עם חומרים איכותיים
+          <h2 className="text-3xl md:text-6xl font-extrabold text-center mb-4 md:mb-8">×ž×—×™×¨×•×Ÿ ×¦×‘×™×¢×ª ×“×™×¨×•×ª</h2>
+          <p className="text-base md:text-2xl font-semibold text-gray-700 text-center max-w-4xl mx-auto mb-6 md:mb-12">
+            ×”×ž×—×™×¨×™× ×›×•×œ×œ×™× ×¢×‘×•×“×” ×ž×§×¦×•×¢×™×ª ×¢× ×—×•×ž×¨×™× ××™×›×•×ª×™×™×
           </p>
 
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -88,9 +88,9 @@ const Pricing = () => {
               <table className="w-full" dir="rtl">
                 <thead>
                   <tr className="bg-gray-50 border-b">
-                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">גודל דירה</th>
-                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">לא מרוהטת</th>
-                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">מרוהטת</th>
+                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">×’×•×“×œ ×“×™×¨×”</th>
+                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">×œ× ×ž×¨×•×”×˜×ª</th>
+                    <th className="px-3 py-4 text-right text-sm font-extrabold text-gray-800">×ž×¨×•×”×˜×ª</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -113,10 +113,10 @@ const Pricing = () => {
               <table className="w-full min-w-[900px]" dir="rtl">
                 <thead>
                   <tr className="bg-gray-50 border-b">
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">גודל דירה</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר דירה לא מרוהטת</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">סה״כ תוספות</th>
-                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">מחיר דירה מרוהטת</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">×’×•×“×œ ×“×™×¨×”</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">×ž×—×™×¨ ×“×™×¨×” ×œ× ×ž×¨×•×”×˜×ª</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">×¡×”×´×› ×ª×•×¡×¤×•×ª</th>
+                    <th className="px-6 py-5 text-right text-xl md:text-2xl font-extrabold text-gray-800">×ž×—×™×¨ ×“×™×¨×” ×ž×¨×•×”×˜×ª</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -137,12 +137,12 @@ const Pricing = () => {
             </div>
 
             <div className="px-6 py-4 bg-gray-50 text-base md:text-lg font-semibold text-gray-700" dir="rtl">
-              <div>* לא כולל מע"מ</div>
+              <div>* ×œ× ×›×•×œ×œ ×ž×¢"×ž</div>
             </div>
           </div>
 
           <div className="mt-12 bg-white rounded-lg shadow-lg p-8">
-            <h3 className="text-3xl md:text-4xl font-extrabold mb-8">מה כלול במחיר?</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold mb-8">×ž×” ×›×œ×•×œ ×‘×ž×—×™×¨?</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {includes.map((item, index) => (
                 <div key={index} className="flex items-center" dir="rtl">
@@ -154,12 +154,12 @@ const Pricing = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-2xl md:text-4xl font-extrabold mb-8">רוצה הצעת מחיר מדויקת?</p>
+            <p className="text-2xl md:text-4xl font-extrabold mb-8">×¨×•×¦×” ×”×¦×¢×ª ×ž×—×™×¨ ×ž×“×•×™×§×ª?</p>
             <a
               href="#contact"
               className="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg text-xl md:text-2xl font-extrabold hover:bg-blue-700 transition-colors"
             >
-              השאר פרטים עכשיו
+              ×”×©××¨ ×¤×¨×˜×™× ×¢×›×©×™×•
             </a>
           </div>
         </div>
