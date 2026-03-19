@@ -62,7 +62,7 @@ const Pricing = () => {
             <a
               href="tel:0543051679"
               onClick={handlePhoneClick}
-              className="w-full bg-blue-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-md md:rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center leading-tight min-h-[40px]"
+              className="w-full bg-blue-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-md md:rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center leading-tight min-h-[80px]"
             >
               <Phone className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 animate-pulse shrink-0" />
               התקשר עכשיו
@@ -72,7 +72,7 @@ const Pricing = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-green-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-md md:rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center leading-tight min-h-[40px]"
+              className="w-full bg-green-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-md md:rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center leading-tight min-h-[80px]"
             >
               <MessageCircle className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 shrink-0" />
               שלח הודעה בוואטסאפ
