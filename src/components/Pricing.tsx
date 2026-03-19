@@ -47,7 +47,7 @@ const Pricing = () => {
   return (
     <section
       id="pricing"
-      className="py-12 md:py-20 relative"
+      className="pt-36 pb-8 md:pt-28 md:pb-20 relative"
       style={{
         backgroundImage: 'url("/painter-bg.jpg")',
         backgroundSize: 'cover',
@@ -58,28 +58,29 @@ const Pricing = () => {
       <div className="absolute inset-0 bg-white/85"></div>
       <div className="relative z-10">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-4 justify-center mb-6 md:mb-12">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:gap-4 justify-center mb-2 md:mb-8">
             <a
               href="tel:0543051679"
               onClick={handlePhoneClick}
-              className="bg-blue-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center leading-tight"
+              className="bg-blue-600 text-white px-2 py-1.5 md:px-8 md:py-4 rounded-md md:rounded-lg text-[10px] sm:text-sm md:text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center leading-tight"
             >
               <Phone className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 animate-pulse shrink-0" />
-              התקשר עכשיו 054-305-1679
+              התקשר עכשיו
+              <span className="hidden sm:inline">&nbsp;054-305-1679</span>
             </a>
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center leading-tight"
+              className="bg-green-600 text-white px-2 py-1.5 md:px-8 md:py-4 rounded-md md:rounded-lg text-[10px] sm:text-sm md:text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center leading-tight"
             >
               <MessageCircle className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 shrink-0" />
               שלח הודעה בוואטסאפ
             </a>
           </div>
 
-          <h2 className="text-3xl md:text-6xl font-extrabold text-center mb-4 md:mb-8">מחירון צביעת דירות</h2>
-          <p className="text-base md:text-2xl font-semibold text-gray-700 text-center max-w-4xl mx-auto mb-6 md:mb-12">
+          <h2 className="text-2xl md:text-6xl font-extrabold text-center mb-2 md:mb-8">מחירון צביעת דירות</h2>
+          <p className="text-sm md:text-2xl font-semibold text-gray-700 text-center max-w-4xl mx-auto mb-4 md:mb-12">
             המחירים כוללים עבודה מקצועית עם חומרים איכותיים
           </p>
 
