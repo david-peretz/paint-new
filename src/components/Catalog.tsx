@@ -34,7 +34,7 @@ const Catalog = () => {
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-10">קטלוג עבודות</h2>
         <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">
-          הנה כמה דוגמאות של דירות צבענו לאחרונה. כל תמונה מייצגת פרויקט עם גוונים ועדכוני טקסטורות.
+          כל תמונה מייצגת פרויקט עם גוונים ועדכוני טקסטורות.
         </p>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
