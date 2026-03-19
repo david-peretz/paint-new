@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Phone, MessageCircle } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -9,10 +9,6 @@ const Hero = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-
-  const phoneNumber = '0543051679';
-  const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
 
   const getNextTicketNumber = () => {
     const currentNumber = parseInt(localStorage.getItem('ticketNumber') || '0');
@@ -82,27 +78,8 @@ const Hero = () => {
           </h1>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-10 text-lg">
             הצוות המנוסה שלנו מבצע צביעה מקצועית בקפידה, תוך שמירה על סדר וניקיון.
-            להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.</p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a
-              href="tel:0543051679"
-              onClick={(e) => gtag_report_conversion('tel:0543051679')}
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center"
-            >
-              <Phone className="w-6 h-6 ml-2 animate-pulse" />
-              התקשר עכשיו  054-305-1679
-            </a>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center"
-            >
-              <MessageCircle className="w-6 h-6 ml-2" />
-              שלח הודעה בוואטסאפ
-            </a>
-          </div>
+            להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.
+          </p>
 
           <div id="contact-form" className="bg-white rounded-xl shadow-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-6 text-center">השאירו פרטים ונחזור אליכם</h3>

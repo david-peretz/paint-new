@@ -20,23 +20,23 @@ const Header = () => {
             <Paintbrush className="w-8 h-8 text-blue-600 mr-3" style={{ transform: 'rotate(-15deg)' }} />
             <div>
               <div className="flex flex-col sm:flex-row items-center">
-                <span className="text-2xl font-bold text-blue-600 ml-2">צביעה מקצועית</span>
+                <span className="text-xl sm:text-2xl font-bold text-blue-600 ml-2">צביעה מקצועית</span>
                 <div className="flex items-center gap-2 mr-2">
                   <a
                     href="tel:0543051679"
                     onClick={handlePhoneClick}
-                    className="text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
+                    className="text-lg sm:text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
                   >
-                    <Phone className="w-5 h-5 ml-1" />
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
                     054-305-1679
                   </a>
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors flex items-center"
+                    className="text-green-600 hover:text-green-700 transition-colors flex items-center"
                   >
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                   </a>
                 </div>
               </div>
@@ -82,25 +82,6 @@ const Header = () => {
             <a href="#services" className="block py-2 text-gray-700 hover:text-blue-600">שירותים</a>
             <a href="#pricing" className="block py-2 text-gray-700 hover:text-blue-600">מחירון</a>
             <a href="#about" className="block py-2 text-gray-700 hover:text-blue-600">אודות</a>
-            <div className="flex flex-col gap-2 mt-4">
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 text-lg font-bold shadow-lg"
-              >
-                <MessageCircle className="w-5 h-5 ml-2" />
-                פתח וואטסאפ
-              </a>
-              <a
-                href="tel:0543051679"
-                onClick={handlePhoneClick}
-                className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 text-lg font-bold shadow-lg"
-              >
-                <Phone className="w-5 h-5 ml-2 animate-pulse" />
-                התקשר עכשיו
-              </a>
-            </div>
           </div>
         )}
       </nav>
