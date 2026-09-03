@@ -85,8 +85,11 @@ splitting as `043-220-` / `6365` mid-number.
 
 ## Conversion tracking — read before touching phone buttons
 
-`index.html` defines a global `gtag_report_conversion(url)`, typed for TS in
-`src/vite-env.d.ts`. Phone links call it from `onClick` after `e.preventDefault()`,
+`index.html` defines two globals, both typed for TS in `src/vite-env.d.ts`:
+`gtag_report_conversion(url)` for phone clicks and `gtag_report_lead()` for the lead
+form. There is no thank-you page on this single-page site, so `Hero.tsx` calls
+`gtag_report_lead()` after a successful submit; it swallows its own errors so a blocked
+gtag.js can never break the form's success path. Phone links call it from `onClick` after `e.preventDefault()`,
 so **the function is solely responsible for performing the `tel:` navigation.**
 It fires from gtag's `event_callback` *and* from a 1s `setTimeout`, guarded by a
 `navigated` flag — do not remove the timeout, it is the only thing that makes the phone
@@ -96,7 +99,8 @@ One gtag.js loader serves three destinations: `AW-1060439344`, `AW-951047760` an
 GA4 property `G-QQCH0DE4P6`. **Never add a second loader script** — one Google tag per
 page; add a `gtag('config', ...)` line instead. `gtag_report_conversion` fires the same phone
 click at both Ads accounts, each with its own label: `AW-1060439344/lrJNCNDhfRCwitT5Aw`
-and `AW-951047760/9csuCL2n87AaENCsv8UD`. Only the second carries `event_callback`; the
+and `AW-951047760/9csuCL2n87AaENCsv8UD`. The lead-form conversion is a separate action
+in the newer account, `AW-1060439344/qa-zCN-ZqVkQsIrU-QM`. Only the second carries `event_callback`; the
 1s timeout is what actually guarantees the `tel:` navigation.
 
 ## Lead flow

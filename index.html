@@ -51,6 +51,20 @@
         setTimeout(callback, 1000);
         return false;
       }
+
+      // Lead-form conversion. There is no thank-you page on this single-page site,
+      // so Hero.tsx calls this after a successful submit instead. No navigation is
+      // involved, so no event_callback and no timeout guard are needed - but it must
+      // never throw, or it would break the form's success path when gtag is blocked.
+      function gtag_report_lead() {
+        try {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-1060439344/qa-zCN-ZqVkQsIrU-QM'
+          });
+        } catch (e) {
+          // gtag.js blocked or failed to load - the lead itself already went through.
+        }
+      }
     </script>
   </head>
   <body>

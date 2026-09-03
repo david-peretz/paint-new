@@ -52,6 +52,7 @@ const Hero = () => {
       });
 
       if (response.ok) {
+        gtag_report_lead();
         setFormData({ name: '', phone: '', message: '' });
         setSubmitStatus('success');
       } else {
