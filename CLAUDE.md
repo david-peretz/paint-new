@@ -52,6 +52,15 @@ Keep no two adjacent sections on the same background. Vertical rhythm is
 an empty viewport). Pricing's `pt-36 md:pt-28` is clearance for the fixed header — tuned
 over several commits, leave it alone.
 
+**Anchor clearance is global.** `index.css` sets `scroll-padding-top: var(--header-offset)`
+on `html` (6rem, 6.5rem from `md`), so every anchor — including any added later — stops
+below the fixed header. Do **not** add `scroll-mt-*` to individual targets; it stacks on
+top of this and over-scrolls. If the header's height changes, change `--header-offset`.
+
+Mobile: headings step `text-3xl sm:text-4xl md:*`, cards use `p-5 sm:p-8`, and the mobile
+pricing table scrolls inside `overflow-x-auto`. `About` and `Services` are single-column
+below `sm` — two columns at 320px left ~92px of content per card.
+
 Rubik's digits are wider than the old fallback font, so text that used to fit no longer
 does. The phone number is wrapped in `whitespace-nowrap` for exactly this reason: it was
 splitting as `043-220-` / `6365` mid-number.

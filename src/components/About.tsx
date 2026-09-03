@@ -29,15 +29,15 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div>
-            <h2 className="text-4xl font-bold mb-4">למה לבחור בנו?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">למה לבחור בנו?</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
               אנחנו מתמחים בביצוע עבודות צביעה מקצועיות לבתים פרטיים ועסקים. הצוות שלנו מורכב מאנשי מקצוע מנוסים המחויבים לאיכות ולשביעות רצון מלאה של לקוחותינו.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white p-5 sm:p-6 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex items-center mb-4">
                     <div className="bg-blue-50 p-3 rounded-lg">

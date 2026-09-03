@@ -5,9 +5,26 @@
 @tailwind utilities;
 
 :root {
+  /* Clearance for the fixed header, so anchor targets are not hidden under it.
+     The header is ~80px tall on mobile (brand + phone stack) and ~76px from sm up;
+     these values add a little breathing room on top of that. */
+  --header-offset: 6rem;
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
   --accent-color: #f59e0b;
+}
+
+/* One rule covers every anchor on the page, including links added later.
+   Per-target scroll-mt-* is unnecessary and would stack on top of this. */
+html {
+  scroll-padding-top: var(--header-offset);
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-offset: 6.5rem;
+  }
 }
 
 /* Base styles */

@@ -84,7 +84,7 @@ const Hero = () => {
 
       <div className="relative z-10 container mx-auto px-6 py-10 md:py-14">
         <div className="w-full max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-600 mb-4">
             צבעו את הבית שלכם בסטייל מקצועי
           </h1>
           <p className="text-center text-gray-800 max-w-3xl mx-auto mb-6 text-lg">
@@ -92,8 +92,8 @@ const Hero = () => {
             להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.
           </p>
 
-          <div id="contact-form" className="scroll-mt-28 bg-white rounded-xl shadow-2xl border border-slate-200 p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-6 text-center">השאירו פרטים ונחזור אליכם</h3>
+          <div id="contact-form" className="bg-white rounded-xl shadow-2xl border border-slate-200 p-5 sm:p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-center">השאירו פרטים ונחזור אליכם</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-gray-900 font-semibold mb-2">שם מלא</label>

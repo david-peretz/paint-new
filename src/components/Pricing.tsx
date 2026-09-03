@@ -76,13 +76,13 @@ const Pricing = () => {
             </a>
           </div>
 
-          <h2 className="text-2xl md:text-6xl font-extrabold text-center mb-2 md:mb-8">מחירון צביעת דירות</h2>
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-extrabold text-center mb-2 md:mb-8">מחירון צביעת דירות</h2>
           <p className="text-sm md:text-2xl font-semibold text-gray-700 text-center max-w-4xl mx-auto mb-4 md:mb-8">
             המחירים כוללים עבודה מקצועית עם חומרים איכותיים
           </p>
 
           <div className="bg-white rounded-lg shadow-lg border border-slate-200 overflow-hidden">
-            <div className="md:hidden">
+            <div className="md:hidden overflow-x-auto">
               <table className="w-full" dir="rtl">
                 <thead>
                   <tr className="bg-gray-50 border-b">
@@ -137,8 +137,8 @@ const Pricing = () => {
             </div>
           </div>
 
-          <div className="mt-8 bg-white rounded-lg shadow-lg border border-slate-200 p-8">
-            <h3 className="text-3xl md:text-4xl font-extrabold mb-6">מה כלול במחיר?</h3>
+          <div className="mt-8 bg-white rounded-lg shadow-lg border border-slate-200 p-5 sm:p-8">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6">מה כלול במחיר?</h3>
             <div className="grid md:grid-cols-2 gap-4">
               {includes.map((item, index) => (
                 <div key={index} className="flex items-center" dir="rtl">
@@ -150,10 +150,10 @@ const Pricing = () => {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-2xl md:text-4xl font-extrabold mb-6">רוצה הצעת מחיר מדויקת?</p>
+            <p className="text-xl sm:text-2xl md:text-4xl font-extrabold mb-6">רוצה הצעת מחיר מדויקת?</p>
             <a
               href="#contact-form"
-              className="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg text-xl md:text-2xl font-extrabold hover:bg-blue-700 transition-colors"
+              className="inline-block w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-10 py-4 rounded-lg text-lg sm:text-xl md:text-2xl font-extrabold hover:bg-blue-700 transition-colors"
             >
               השאר פרטים עכשיו
             </a>

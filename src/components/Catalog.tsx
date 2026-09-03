@@ -31,8 +31,8 @@ const Catalog = () => {
   return (
     <section id="catalog" className="py-10 md:py-14 bg-slate-100 border-y border-slate-300">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 md:mb-6">קטלוג עבודות</h2>
-        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-8 text-lg">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 md:mb-6">קטלוג עבודות</h2>
+        <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 text-base sm:text-lg">
           כל תמונה מייצגת פרויקט עם גוונים ועדכוני טקסטורות.
         </p>
 
