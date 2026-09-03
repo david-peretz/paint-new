@@ -100,7 +100,10 @@ that account's own conversion label.
 
 ## Lead flow
 
-The form in `Hero.tsx` POSTs to `formsubmit.co/ajax/david82761@gmail.com`. Ticket numbers
+The form in `Hero.tsx` POSTs to FormSubmit at `LEAD_EMAIL` (assafbiton@gmail.com), with
+`david82761@gmail.com` on `_cc`; both addresses and the fixed `_subject` live in
+`src/contact.ts`. FormSubmit requires a one-time activation click on the first mail it
+sends to a new recipient — until that is done, submissions do not arrive. Ticket numbers
 come from `localStorage` — per-browser, so they are not unique across visitors.
 
 **Leads are not persisted anywhere** — email only. `supabase/migrations/` and the `.env`

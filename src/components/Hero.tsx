@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import { LEAD_EMAIL, LEAD_EMAIL_CC, LEAD_SUBJECT } from '../contact';
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ const Hero = () => {
     const ticketNumber = getNextTicketNumber();
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/david82761@gmail.com', {
+      const response = await fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +43,9 @@ const Hero = () => {
         },
         body: JSON.stringify({
           ...formData,
-          _subject: `פנייה חדשה מאתר צביעה מקצועית - קריאה מספר ${ticketNumber}`,
+          'מספר קריאה': ticketNumber,
+          _subject: LEAD_SUBJECT,
+          _cc: LEAD_EMAIL_CC,
           _captcha: false,
           _template: 'box'
         })

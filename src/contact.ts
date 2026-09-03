@@ -6,3 +6,9 @@ export const PHONE_DIGITS = '0542206365';
 export const PHONE_DISPLAY = '054-220-6365';
 export const PHONE_TEL = `tel:${PHONE_DIGITS}`;
 export const WHATSAPP_LINK = `https://wa.me/972${PHONE_DIGITS.substring(1)}`;
+
+// Where the lead form in Hero.tsx delivers. LEAD_EMAIL is the FormSubmit recipient;
+// LEAD_EMAIL_CC keeps the original address copied on every lead.
+export const LEAD_EMAIL = 'assafbiton@gmail.com';
+export const LEAD_EMAIL_CC = 'david82761@gmail.com';
+export const LEAD_SUBJECT = 'עבודות צבע פנייה מהאתר';

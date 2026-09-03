@@ -134,6 +134,7 @@ const Pricing = () => {
 
             <div className="px-6 py-4 bg-gray-50 text-base md:text-lg font-semibold text-gray-700" dir="rtl">
               <div>* לא כולל מע"מ</div>
+              <div>* לא כולל תקרות</div>
             </div>
           </div>
 
