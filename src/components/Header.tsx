@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone, MessageCircle, Paintbrush } from 'lucide-react';
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_LINK } from '../contact';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    return gtag_report_conversion('tel:0543051679');
+    return gtag_report_conversion(PHONE_TEL);
   };
 
   // Single source of truth for both navs - they drifted apart before, which is how
@@ -19,9 +20,6 @@ const Header = () => {
     { href: '#about', label: 'אודות' },
   ];
 
-  const phoneNumber = '0543051679';
-  const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
-
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <nav className="container mx-auto px-6 py-3">
@@ -33,15 +31,15 @@ const Header = () => {
                 <span className="text-xl sm:text-2xl font-bold text-blue-600 ml-2">צביעה מקצועית</span>
                 <div className="flex items-center gap-2 mr-2">
                   <a
-                    href="tel:0543051679"
+                    href={PHONE_TEL}
                     onClick={handlePhoneClick}
                     className="text-lg sm:text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
                   >
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-                    054-305-1679
+                    {PHONE_DISPLAY}
                   </a>
                   <a
-                    href={whatsappLink}
+                    href={WHATSAPP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-600 hover:text-green-700 transition-colors flex items-center"
@@ -61,7 +59,7 @@ const Header = () => {
             ))}
             <div className="flex items-center gap-2">
               <a
-                href={whatsappLink}
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 text-lg font-bold shadow-lg hover:shadow-xl transition-all"
@@ -70,7 +68,7 @@ const Header = () => {
                 וואטסאפ
               </a>
               <a
-                href="tel:0543051679"
+                href={PHONE_TEL}
                 onClick={handlePhoneClick}
                 className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 text-lg font-bold shadow-lg hover:shadow-xl transition-all"
               >

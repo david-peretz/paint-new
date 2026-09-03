@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle, Phone, MessageCircle } from 'lucide-react';
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_LINK } from '../contact';
 
 type PricingRow = {
   type: string;
@@ -8,12 +9,9 @@ type PricingRow = {
 };
 
 const Pricing = () => {
-  const phoneNumber = '0543051679';
-  const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
-
   const handlePhoneClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    return gtag_report_conversion('tel:0543051679');
+    return gtag_report_conversion(PHONE_TEL);
   };
 
   const pricingData: PricingRow[] = [
@@ -59,16 +57,16 @@ const Pricing = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-4 justify-center mb-2 md:mb-8 max-w-2xl mx-auto w-full">
             <a
-              href="tel:0543051679"
+              href={PHONE_TEL}
               onClick={handlePhoneClick}
               className="w-full bg-blue-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-md md:rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-blue-700 text-center transition-colors flex items-center justify-center leading-tight min-h-[80px]"
             >
               <Phone className="w-4 h-4 md:w-6 md:h-6 ml-1 md:ml-2 animate-pulse shrink-0" />
               התקשר עכשיו
-              <span className="hidden sm:inline">&nbsp;054-305-1679</span>
+              <span className="hidden sm:inline">&nbsp;{PHONE_DISPLAY}</span>
             </a>
             <a
-              href={whatsappLink}
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-green-600 text-white px-3 py-2 md:px-8 md:py-4 rounded-md md:rounded-lg text-xs sm:text-sm md:text-xl font-semibold hover:bg-green-700 text-center transition-colors flex items-center justify-center leading-tight min-h-[80px]"

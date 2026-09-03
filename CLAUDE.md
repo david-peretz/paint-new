@@ -43,8 +43,9 @@ nothing is shared or lifted.
   Tailwind's directional utilities: use `ml-*` for what looks like right spacing, and
   `space-x-reverse` alongside `space-x-*` or the gaps come out backwards.
 - **All copy is Hebrew, inline in JSX.** No i18n layer. Don't extract strings.
-- Phone number `0543051679` is hardcoded in 5 places across `Header.tsx` and
-  `Pricing.tsx`, plus the `wa.me/972...` link built from it. Change all of them together.
+- **The phone number lives only in `src/contact.ts`.** It exports `PHONE_DIGITS`,
+  `PHONE_DISPLAY`, `PHONE_TEL` and `WHATSAPP_LINK`; `Header` and `Pricing` import them.
+  It was hardcoded 9 times before — don't re-inline it.
 - **Both navs come from one `navLinks` array** in `Header.tsx`. Don't re-inline the links —
   they drifted before and left three CTAs pointing at an id that never existed.
 - `React` is only imported where `React.*` types are used (`Header`, `Hero`).
