@@ -1,0 +1,90 @@
+# CLAUDE.md
+
+Landing page for a Hebrew (RTL) house-painting business — "צביעה מקצועית".
+Single-page marketing site. The whole product is: show prices, get the visitor to call, WhatsApp, or submit the lead form.
+
+## Commands
+
+```bash
+npm install          # deps (verified clean, exit 0)
+npm run dev          # Vite dev server on :5173, host:true (LAN-exposed)
+npm run build        # vite build -> dist/   (NO typecheck — see below)
+npm run preview      # serve dist/
+npm run lint         # eslint .
+
+npx tsc --noEmit -p tsconfig.app.json    # typecheck — must be run separately
+```
+
+**`npm run build` does not typecheck.** `vite build` only transpiles, so type errors ship
+silently. The tree is currently clean (`tsc` 0, `eslint` 0, build 0 warnings) — keep it
+that way by running `tsc --noEmit` explicitly; the build alone will not tell you.
+
+## Stack
+
+Vite 5 + React 18 + TypeScript + Tailwind 3. `lucide-react` for icons. No router, no
+state library, no tests, no CI.
+
+## Architecture
+
+`src/App.tsx` renders a flat, fixed list of sections. **Visual order ≠ file order** —
+`Pricing` is rendered first (above `Hero`) because the price table is the hook:
+
+```
+Header · Pricing · Catalog · Hero(form) · Services · About · Footer · AccessibilityWidget
+```
+
+Each section owns its `id` for anchor navigation. Component-local `useState` only;
+nothing is shared or lifted.
+
+## Conventions that matter here
+
+- **RTL is the default.** `lang="he" dir="rtl"` on `<html>`, plus `dir="rtl"` on the
+  `#app-root` wrapper in `App.tsx`. This inverts
+  Tailwind's directional utilities: use `ml-*` for what looks like right spacing, and
+  `space-x-reverse` alongside `space-x-*` or the gaps come out backwards.
+- **All copy is Hebrew, inline in JSX.** No i18n layer. Don't extract strings.
+- Phone number `0543051679` is hardcoded in 5 places across `Header.tsx` and
+  `Pricing.tsx`, plus the `wa.me/972...` link built from it. Change all of them together.
+- **Both navs come from one `navLinks` array** in `Header.tsx`. Don't re-inline the links —
+  they drifted before and left three CTAs pointing at an id that never existed.
+- `React` is only imported where `React.*` types are used (`Header`, `Hero`).
+  `jsx: react-jsx` makes the import unnecessary for JSX alone, and `noUnusedLocals` will
+  fail the typecheck if you add it back.
+- Tailwind config extends `primary`/`accent` color scales and an `xs: 375px` screen —
+  but the components use raw `blue-600`/`green-600` instead. Match the surrounding code.
+
+## Conversion tracking — read before touching phone buttons
+
+`index.html` defines a global `gtag_report_conversion(url)`, typed for TS in
+`src/vite-env.d.ts`. Phone links call it from `onClick` after `e.preventDefault()`,
+so **the function is solely responsible for performing the `tel:` navigation.**
+It fires from gtag's `event_callback` *and* from a 1s `setTimeout`, guarded by a
+`navigated` flag — do not remove the timeout, it is the only thing that makes the phone
+button work when `gtag.js` is blocked. See `docs/ERROR-AUDIT-2026-09-03.md` §4.
+
+Two Google Ads IDs are configured (`AW-951047760`, `AW-1060439344`) but the conversion
+event only targets the first.
+
+## Lead flow
+
+The form in `Hero.tsx` POSTs to `formsubmit.co/ajax/david82761@gmail.com`. Ticket numbers
+come from `localStorage` — per-browser, so they are not unique across visitors.
+
+**Leads are not persisted anywhere** — email only. `supabase/migrations/` and the `.env`
+vars still exist, but the `@supabase/supabase-js` dependency was removed since nothing
+imported it. Wiring the form to Supabase is an open product decision, not a bug; run
+`npm i @supabase/supabase-js` if you take it on.
+
+`.env` is untracked (see `.env.example`). The anon key remains in git history — it is a
+client-side key so this is not urgent, but rotate it if you ever want it gone.
+
+## Known state
+
+`docs/ERROR-AUDIT-2026-09-03.md` — full audit, all 16 findings fixed and verified.
+`docs/WORK-LOG.md` — history reconstructed from 73 commits, plus what changed and why.
+
+Two things worth knowing before you touch the pricing section: the background was
+`/painter-bg.jpg`, an image **never committed to this repo**, now pointed at `/image2.png`
+as a stand-in — swap in a real one if you have it. And roughly half of all commits touch
+`Pricing.tsx`, with columns and CTA geometry each reverted at least once, so check
+`git log` on that file before "fixing" its layout.

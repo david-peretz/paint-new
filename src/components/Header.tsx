@@ -9,6 +9,16 @@ const Header = () => {
     return gtag_report_conversion('tel:0543051679');
   };
 
+  // Single source of truth for both navs - they drifted apart before, which is how
+  // three links ended up pointing at a #contact id that never existed.
+  const navLinks = [
+    { href: '#contact-form', label: 'צור קשר' },
+    { href: '#catalog', label: 'קטלוג' },
+    { href: '#services', label: 'שירותים' },
+    { href: '#pricing', label: 'מחירון' },
+    { href: '#about', label: 'אודות' },
+  ];
+
   const phoneNumber = '0543051679';
   const whatsappLink = `https://wa.me/972${phoneNumber.substring(1)}`;
 
@@ -44,11 +54,11 @@ const Header = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8 space-x-reverse">
-            <a href="#contact" className="text-gray-700 hover:text-blue-600">צור קשר</a>
-            <a href="#catalog" className="text-gray-700 hover:text-blue-600">קטלוג</a>
-            <a href="#services" className="text-gray-700 hover:text-blue-600">שירותים</a>
-            <a href="#pricing" className="text-gray-700 hover:text-blue-600">מחירון</a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600">אודות</a>
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-gray-700 hover:text-blue-600">
+                {link.label}
+              </a>
+            ))}
             <div className="flex items-center gap-2">
               <a
                 href={whatsappLink}
@@ -70,18 +80,29 @@ const Header = () => {
             </div>
           </div>
 
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="md:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'סגור תפריט' : 'פתח תפריט'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+          >
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
 
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4">
-            <a href="#contact" className="block py-2 text-gray-700 hover:text-blue-600">צור קשר</a>
-            <a href="#catalog" className="block py-2 text-gray-700 hover:text-blue-600">קטלוג</a>
-            <a href="#services" className="block py-2 text-gray-700 hover:text-blue-600">שירותים</a>
-            <a href="#pricing" className="block py-2 text-gray-700 hover:text-blue-600">מחירון</a>
-            <a href="#about" className="block py-2 text-gray-700 hover:text-blue-600">אודות</a>
+          <div id="mobile-menu" className="md:hidden mt-4 pb-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block py-2 text-gray-700 hover:text-blue-600"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         )}
       </nav>

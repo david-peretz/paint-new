@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
-  Eye, 
   Type, 
   MousePointer, 
   Contrast, 
@@ -45,7 +44,7 @@ const AccessibilityWidget = () => {
   return (
     <div className="fixed bottom-4 left-4 z-50 flex flex-col items-start">
       {isOpen && (
-        <div className="bg-white rounded-lg shadow-xl p-4 mb-2 border border-gray-200 animate-fade-in">
+        <div id="accessibility-panel" className="bg-white rounded-lg shadow-xl p-4 mb-2 border border-gray-200 animate-fade-in">
           <div className="space-y-4">
             <div className="flex items-center justify-between mb-2">
               <span className="font-semibold">נגישות</span>
@@ -109,7 +108,9 @@ const AccessibilityWidget = () => {
       <button
         onClick={toggleMenu}
         className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
-        aria-label="פתח תפריט נגישות"
+        aria-label={isOpen ? 'סגור תפריט נגישות' : 'פתח תפריט נגישות'}
+        aria-expanded={isOpen}
+        aria-controls="accessibility-panel"
       >
         <AccessibilityIcon className="w-6 h-6" />
       </button>

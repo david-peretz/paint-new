@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, ThumbsUp, Clock, Users } from 'lucide-react';
 
 const About = () => {

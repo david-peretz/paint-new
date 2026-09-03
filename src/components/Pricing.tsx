@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { CheckCircle, Phone, MessageCircle } from 'lucide-react';
 
 type PricingRow = {
@@ -38,8 +38,7 @@ const Pricing = () => {
     'צבע איכותי (נירלט / טמבור)',
     'תיקוני שפכטל קלים',
     'הגנה על רהיטים ורצפה',
-    'ניקיון בסיסי בסיום',
-    'לא כולל מע"מ'
+    'ניקיון בסיסי בסיום'
   ];
 
   const formatCurrency = (value: number) => `₪${value.toLocaleString('en-US')}`;
@@ -49,7 +48,7 @@ const Pricing = () => {
       id="pricing"
       className="pt-36 pb-8 md:pt-28 md:pb-20 relative"
       style={{
-        backgroundImage: 'url("/painter-bg.jpg")',
+        backgroundImage: 'url("/image2.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -155,7 +154,7 @@ const Pricing = () => {
           <div className="mt-12 text-center">
             <p className="text-2xl md:text-4xl font-extrabold mb-8">רוצה הצעת מחיר מדויקת?</p>
             <a
-              href="#contact"
+              href="#contact-form"
               className="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg text-xl md:text-2xl font-extrabold hover:bg-blue-700 transition-colors"
             >
               השאר פרטים עכשיו

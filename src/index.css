@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
 
 :root {
   --primary-color: #2563eb;
@@ -60,7 +60,11 @@ body {
 }
 
 /* Accessibility */
-.high-contrast {
+/* The filter is applied to the app root's children, never to an ancestor of them.
+   A non-none `filter` makes an element a containing block for its position:fixed
+   descendants, so filtering <html> or #app-root would un-fix the sticky header and
+   this widget's own button. Filtering each child leaves those children fixed. */
+.high-contrast #app-root > * {
   filter: contrast(150%);
 }
 

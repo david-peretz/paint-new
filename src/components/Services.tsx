@@ -1,4 +1,3 @@
-import React from 'react';
 import { Paintbrush as Paint, Home, Building2, Paintbrush } from 'lucide-react';
 
 const Services = () => {

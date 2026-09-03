@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -10,7 +9,7 @@ import AccessibilityWidget from './components/AccessibilityWidget';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white" dir="rtl">
+    <div id="app-root" className="min-h-screen bg-white" dir="rtl">
       <Header />
       <Pricing />
       <Catalog />

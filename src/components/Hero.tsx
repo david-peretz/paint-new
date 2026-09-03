@@ -8,7 +8,9 @@ const Hero = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    'idle' | 'success' | 'error' | 'invalid-phone'
+  >('idle');
 
   const getNextTicketNumber = () => {
     const currentNumber = parseInt(localStorage.getItem('ticketNumber') || '0');
@@ -20,6 +22,13 @@ const Hero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
+
+    // The HTML pattern can't count digits while ignoring separators, so do it here.
+    const digits = formData.phone.replace(/[^0-9]/g, '');
+    if (digits.length < 9 || digits.length > 10) {
+      setSubmitStatus('invalid-phone');
+      return;
+    }
 
     setIsSubmitting(true);
     const ticketNumber = getNextTicketNumber();
@@ -46,6 +55,7 @@ const Hero = () => {
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Lead form submission failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -54,6 +64,7 @@ const Hero = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    if (submitStatus !== 'idle') setSubmitStatus('idle');
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -81,7 +92,7 @@ const Hero = () => {
             להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.
           </p>
 
-          <div id="contact-form" className="bg-white rounded-xl shadow-2xl p-8 max-w-2xl mx-auto">
+          <div id="contact-form" className="scroll-mt-28 bg-white rounded-xl shadow-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-6 text-center">השאירו פרטים ונחזור אליכם</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -108,8 +119,9 @@ const Hero = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   placeholder="הכנס את מספר הטלפון שלך"
-                  pattern="[0-9]{10}"
-                  title="אנא הכנס מספר טלפון תקין (10 ספרות)"
+                  inputMode="tel"
+                  pattern="[0-9+() -]{9,20}"
+                  title="אנא הכנס מספר טלפון תקין (9-10 ספרות, מקפים ורווחים מותרים)"
                 />
               </div>
               <div>
@@ -124,6 +136,11 @@ const Hero = () => {
                   placeholder="כתוב את הודעתך כאן..."
                 ></textarea>
               </div>
+              {submitStatus === 'invalid-phone' && (
+                <div className="bg-red-50 text-red-600 p-4 rounded-lg text-center font-semibold animate-fade-in">
+                  מספר הטלפון אינו תקין. אנא הכנס 9-10 ספרות.
+                </div>
+              )}
               {submitStatus === 'error' && (
                 <div className="bg-red-50 text-red-600 p-4 rounded-lg text-center font-semibold animate-fade-in">
                   אירעה שגיאה בשליחת הטופס. אנא נסה שוב או צור קשר בטלפון.
