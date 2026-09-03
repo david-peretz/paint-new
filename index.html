@@ -34,6 +34,14 @@
             window.location = url;
           }
         };
+        // Same click, reported to both Ads accounts - each needs its own label.
+        // Only one carries event_callback; the 1s timeout below is the real
+        // safety net for the tel: navigation either way.
+        gtag('event', 'conversion', {
+          'send_to': 'AW-1060439344/lrJNCNDhfRCwitT5Aw',
+          'value': 1.0,
+          'currency': 'ILS'
+        });
         gtag('event', 'conversion', {
           'send_to': 'AW-951047760/9csuCL2n87AaENCsv8UD',
           'value': 1.0,

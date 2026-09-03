@@ -94,9 +94,10 @@ button work when `gtag.js` is blocked. See `docs/ERROR-AUDIT-2026-09-03.md` §4.
 
 One gtag.js loader serves three destinations: `AW-1060439344`, `AW-951047760` and the
 GA4 property `G-QQCH0DE4P6`. **Never add a second loader script** — one Google tag per
-page; add a `gtag('config', ...)` line instead. The conversion event still targets only
-`AW-951047760/9csuCL2n87AaENCsv8UD`; tracking conversions in the newer Ads account needs
-that account's own conversion label.
+page; add a `gtag('config', ...)` line instead. `gtag_report_conversion` fires the same phone
+click at both Ads accounts, each with its own label: `AW-1060439344/lrJNCNDhfRCwitT5Aw`
+and `AW-951047760/9csuCL2n87AaENCsv8UD`. Only the second carries `event_callback`; the
+1s timeout is what actually guarantees the `tel:` navigation.
 
 ## Lead flow
 
