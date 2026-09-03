@@ -35,8 +35,8 @@ const Header = () => {
                     onClick={handlePhoneClick}
                     className="text-lg sm:text-2xl font-bold text-blue-800 hover:text-blue-600 transition-colors flex items-center"
                   >
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 ml-1" />
-                    {PHONE_DISPLAY}
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 ml-1 shrink-0" />
+                    <span className="whitespace-nowrap">{PHONE_DISPLAY}</span>
                   </a>
                   <a
                     href={WHATSAPP_LINK}

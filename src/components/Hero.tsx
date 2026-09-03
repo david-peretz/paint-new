@@ -72,7 +72,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="pt-20 relative min-h-screen">
+    <div className="relative bg-white">
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
@@ -82,21 +82,21 @@ const Hero = () => {
         <div className="absolute inset-0 bg-white/90"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-12">
+      <div className="relative z-10 container mx-auto px-6 py-10 md:py-14">
         <div className="w-full max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-center text-blue-600 mb-4">
             צבעו את הבית שלכם בסטייל מקצועי
           </h1>
-          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-10 text-lg">
+          <p className="text-center text-gray-800 max-w-3xl mx-auto mb-6 text-lg">
             הצוות המנוסה שלנו מבצע צביעה מקצועית בקפידה, תוך שמירה על סדר וניקיון.
             להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.
           </p>
 
-          <div id="contact-form" className="scroll-mt-28 bg-white rounded-xl shadow-2xl p-8 max-w-2xl mx-auto">
+          <div id="contact-form" className="scroll-mt-28 bg-white rounded-xl shadow-2xl border border-slate-200 p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-6 text-center">השאירו פרטים ונחזור אליכם</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-gray-700 mb-2">שם מלא</label>
+                <label htmlFor="name" className="block text-gray-900 font-semibold mb-2">שם מלא</label>
                 <input
                   id="name"
                   name="name"
@@ -104,12 +104,12 @@ const Hero = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                  className="w-full px-4 py-2 border border-gray-400 rounded-lg text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   placeholder="הכנס את שמך המלא"
                 />
               </div>
               <div>
-                <label htmlFor="phone" className="block text-gray-700 mb-2">טלפון</label>
+                <label htmlFor="phone" className="block text-gray-900 font-semibold mb-2">טלפון</label>
                 <input
                   id="phone"
                   name="phone"
@@ -117,7 +117,7 @@ const Hero = () => {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+                  className="w-full px-4 py-2 border border-gray-400 rounded-lg text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                   placeholder="הכנס את מספר הטלפון שלך"
                   inputMode="tel"
                   pattern="[0-9+() -]{9,20}"
@@ -125,14 +125,14 @@ const Hero = () => {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-gray-700 mb-2">הודעה</label>
+                <label htmlFor="message" className="block text-gray-900 font-semibold mb-2">הודעה</label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all h-32 resize-y"
+                  className="w-full px-4 py-2 border border-gray-400 rounded-lg text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all h-32 resize-y"
                   placeholder="כתוב את הודעתך כאן..."
                 ></textarea>
               </div>

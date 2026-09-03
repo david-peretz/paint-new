@@ -36,6 +36,26 @@ Header · Pricing · Catalog · Hero(form) · Services · About · Footer · Acc
 Each section owns its `id` for anchor navigation. Component-local `useState` only;
 nothing is shared or lifted.
 
+## Layout
+
+Sections alternate background bands so their edges are visible — the old
+white/`gray-50` gradients were indistinguishable:
+
+```
+Pricing  photo + bg-white/80     Hero      photo + bg-white/90
+Catalog  bg-slate-100 + border   Services  bg-slate-100 + border
+About    bg-white                Footer    bg-gray-800
+```
+
+Keep no two adjacent sections on the same background. Vertical rhythm is
+`py-10 md:py-14`; don't reintroduce `py-20` or `min-h-screen` (Hero had both and forced
+an empty viewport). Pricing's `pt-36 md:pt-28` is clearance for the fixed header — tuned
+over several commits, leave it alone.
+
+Rubik's digits are wider than the old fallback font, so text that used to fit no longer
+does. The phone number is wrapped in `whitespace-nowrap` for exactly this reason: it was
+splitting as `043-220-` / `6365` mid-number.
+
 ## Conventions that matter here
 
 - **RTL is the default.** `lang="he" dir="rtl"` on `<html>`, plus `dir="rtl"` on the
@@ -63,8 +83,11 @@ It fires from gtag's `event_callback` *and* from a 1s `setTimeout`, guarded by a
 `navigated` flag — do not remove the timeout, it is the only thing that makes the phone
 button work when `gtag.js` is blocked. See `docs/ERROR-AUDIT-2026-09-03.md` §4.
 
-Two Google Ads IDs are configured (`AW-951047760`, `AW-1060439344`) but the conversion
-event only targets the first.
+One gtag.js loader serves three destinations: `AW-1060439344`, `AW-951047760` and the
+GA4 property `G-QQCH0DE4P6`. **Never add a second loader script** — one Google tag per
+page; add a `gtag('config', ...)` line instead. The conversion event still targets only
+`AW-951047760/9csuCL2n87AaENCsv8UD`; tracking conversions in the newer Ads account needs
+that account's own conversion label.
 
 ## Lead flow
 

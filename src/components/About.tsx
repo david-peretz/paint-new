@@ -25,19 +25,19 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="about" className="py-10 md:py-14 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div>
-            <h2 className="text-4xl font-bold mb-6">למה לבחור בנו?</h2>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <h2 className="text-4xl font-bold mb-4">למה לבחור בנו?</h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
               אנחנו מתמחים בביצוע עבודות צביעה מקצועיות לבתים פרטיים ועסקים. הצוות שלנו מורכב מאנשי מקצוע מנוסים המחויבים לאיכות ולשביעות רצון מלאה של לקוחותינו.
             </p>
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white p-6 rounded-xl shadow-md border border-slate-200 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex items-center mb-4">
                     <div className="bg-blue-50 p-3 rounded-lg">
