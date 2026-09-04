@@ -9,7 +9,7 @@ export const PHONE_TEL = `tel:${PHONE_DIGITS}`;
 // it is written in their voice — it opens the conversation and collects the three
 // details we always end up asking for anyway (type of work, size, city).
 export const WHATSAPP_MESSAGE = [
-  'שלום, הגעתי מהאתר של צביעה מקצועית 👋',
+  'שלום, הגעתי מהאתר של צביעה מקצועית 🎨',
   'אשמח לקבל הצעת מחיר לעבודת צבע, ללא התחייבות.',
   '',
   'סוג העבודה (דירה / בית / משרד):',
