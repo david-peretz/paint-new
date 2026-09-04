@@ -87,6 +87,63 @@ splitting as `043-220-` / `6365` mid-number.
 - Tailwind config extends `primary`/`accent` color scales and an `xs: 375px` screen —
   but the components use raw `blue-600`/`green-600` instead. Match the surrounding code.
 
+## SEO
+
+The domain is a **placeholder** (`https://www.example.co.il`). It is written in three
+places and all three must change together:
+
+```
+src/seo.ts          SITE_URL          -> canonical/og:url/@id in the JSON-LD
+index.html          the SEO block     -> canonical, og:url, og:image, twitter:image
+public/sitemap.xml  <loc>             -> and the Sitemap: line in public/robots.txt
+```
+
+**Static `<meta>` in `index.html`, structured data from React.** WhatsApp, Facebook and
+Twitter scrape raw HTML and never run JS, so title/description/Open Graph have to be in
+`index.html`. The schema.org graph is the exception: it is emitted by
+`src/components/JsonLd.tsx` so it can be built from `contact.ts`, `faqs.ts` and
+`pricing.ts` rather than being retyped and drifting. Googlebot renders JS before reading
+JSON-LD, and every visible word on this page already needs that same pass.
+
+Three data modules exist purely so the page and its structured data cannot disagree:
+
+- `src/seo.ts` — `SITE_URL`, business name/description, `SERVICE_AREA_CITIES`, geo.
+  The service-area copy in `Pricing`, `Hero`, `Services`, `About` and `Footer` all
+  interpolate `SERVICE_AREA_LABEL`; adding a city to `SERVICE_AREA_CITIES` adds it to
+  the footer list and to `areaServed` at once.
+- `src/faqs.ts` — the FAQ text, shared by `Faq.tsx` and the `FAQPage` markup.
+- `src/pricing.ts` — the rows, `unfurnishedPrice()`, and the `includes` list, shared by
+  `Pricing.tsx` and the `Offer` markup.
+
+Separate `.ts` files rather than exports from the components, because
+`eslint-plugin-react-refresh` warns on non-component exports from a component file.
+
+**One `<h1>`, and it lives in `Pricing`.** `Pricing` renders first in `App.tsx`, so its
+heading is the first one in the DOM — that is the page's h1. `Hero`'s headline is an
+`<h2>` for exactly this reason. Don't add a second h1.
+
+**FAQ answers are hidden, never unmounted.** `Faq.tsx` renders every answer and toggles
+`hidden`; a collapsed answer that does not render is text Google cannot index, and 11 of
+the 12 are collapsed on load. Don't put the `{isOpen && ...}` back.
+
+**Images are `.webp`.** `cat1-5`, `image1`, `image2` were 2752px PNGs totalling ~15 MB
+for a grid that renders at ~400px; the `.webp` versions are 1200px and total ~440 KB.
+The `.png` originals are still in `public/` and still ship to `dist/`, but nothing
+references them — delete them when you are sure you won't want to re-derive the WebP.
+The Unsplash URLs in `Hero` and `Services` carry `&w=`; without it Unsplash serves the
+full-resolution original.
+
+The `<noscript>` block in `index.html` is the only content a non-rendering crawler sees,
+since `#root` is empty without JS. It is also the one deliberate exception to the
+phone-number rule below — static HTML cannot import `contact.ts`.
+
+`public/og-image.jpg` (1200×630) and `public/apple-touch-icon.png` are generated assets,
+not photographs; regenerate them if the branding changes.
+
+**Not done:** the page is still client-rendered. Prerendering `/` to static HTML at build
+time is the single largest remaining SEO win and needs a real dependency
+(`vite-plugin-prerender`, `react-snap` or similar).
+
 ## Conversion tracking — read before touching phone buttons
 
 `index.html` defines two globals, both typed for TS in `src/vite-env.d.ts`:

@@ -1,0 +1,7 @@
+# Single-page site: everything worth crawling is at /.
+User-agent: *
+Allow: /
+
+# Update the host below together with SITE_URL in src/seo.ts and the canonical/og:url
+# tags in index.html when a real domain is in place.
+Sitemap: https://www.example.co.il/sitemap.xml

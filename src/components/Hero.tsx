@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
 import { LEAD_EMAIL, LEAD_EMAIL_CC, LEAD_SUBJECT } from '../contact';
+import { SERVICE_AREA_LABEL } from '../seo';
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -80,7 +81,11 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1565182999561-18d7dc61c393?auto=format&fit=crop&q=80")',
+          // &w= is not optional: without a width Unsplash serves the full-resolution
+          // original, which is several megabytes for a background nobody can see
+          // through a bg-white/90 scrim.
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1565182999561-18d7dc61c393?auto=format&fit=crop&q=75&w=1600")',
         }}
       >
         <div className="absolute inset-0 bg-white/90"></div>
@@ -88,17 +93,19 @@ const Hero = () => {
 
       <div className="relative z-10 container mx-auto px-6 py-10 md:py-14">
         <div className="w-full max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-600 mb-4">
+          {/* An <h2>, not an <h1>: Pricing renders before this section and owns the
+              page's single h1. Two h1s would split the page's subject in two. */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-600 mb-4">
             צבעו את הבית שלכם בסטייל מקצועי
-          </h1>
+          </h2>
           <p className="text-center text-gray-800 max-w-3xl mx-auto mb-6 text-lg">
-            הצוות המנוסה שלנו מבצע צביעה מקצועית בקפידה, תוך שמירה על סדר וניקיון.
-            להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.
+            הצוות המנוסה שלנו מבצע צביעה מקצועית בקפידה בכל {SERVICE_AREA_LABEL}, תוך
+            שמירה על סדר וניקיון. להזמנות מהירות וקבלת הצעת מחיר, צרו קשר עכשיו.
           </p>
 
           <div id="contact-form" className="bg-white rounded-xl shadow-2xl border border-slate-200 p-5 sm:p-8 max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-center">השאירו פרטים ונחזור אליכם</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" aria-label="טופס יצירת קשר לקבלת הצעת מחיר">
               <div>
                 <label htmlFor="name" className="block text-gray-900 font-semibold mb-2">שם מלא</label>
                 <input

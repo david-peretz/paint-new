@@ -1,4 +1,5 @@
 import { Shield, ThumbsUp, Clock, Users } from 'lucide-react';
+import { SERVICE_AREA_LABEL } from '../seo';
 
 const About = () => {
   const features = [
@@ -31,7 +32,9 @@ const About = () => {
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">למה לבחור בנו?</h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              אנחנו מתמחים בביצוע עבודות צביעה מקצועיות לבתים פרטיים ועסקים. הצוות שלנו מורכב מאנשי מקצוע מנוסים המחויבים לאיכות ולשביעות רצון מלאה של לקוחותינו.
+              אנחנו מתמחים בביצוע עבודות צביעה מקצועיות לדירות, לבתים פרטיים ולעסקים
+              ב{SERVICE_AREA_LABEL}. הצוות שלנו מורכב מאנשי מקצוע מנוסים המחויבים לאיכות
+              ולשביעות רצון מלאה של לקוחותינו.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {features.map((feature, index) => (
