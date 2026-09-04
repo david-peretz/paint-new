@@ -4,6 +4,7 @@ import Services from './components/Services';
 import Catalog from './components/Catalog';
 import Pricing from './components/Pricing';
 import About from './components/About';
+import Faq from './components/Faq';
 import Footer from './components/Footer';
 import AccessibilityWidget from './components/AccessibilityWidget';
 
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <Services />
       <About />
+      <Faq />
       <Footer />
       <AccessibilityWidget />
     </div>

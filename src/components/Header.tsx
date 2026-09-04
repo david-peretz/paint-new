@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, MessageCircle, Paintbrush } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Paintbrush, HelpCircle } from 'lucide-react';
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_LINK } from '../contact';
 
 const Header = () => {
@@ -18,6 +18,9 @@ const Header = () => {
     { href: '#services', label: 'שירותים' },
     { href: '#pricing', label: 'מחירון' },
     { href: '#about', label: 'אודות' },
+    // highlight renders this one as a pill in both navs - it is the only link
+    // meant to stand out, so the flag lives with the link instead of forking the array.
+    { href: '#faq', label: 'שאלות ותשובות', highlight: true },
   ];
 
   return (
@@ -53,7 +56,16 @@ const Header = () => {
 
           <div className="hidden md:flex items-center space-x-8 space-x-reverse">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="text-gray-700 hover:text-blue-600">
+              <a
+                key={link.href}
+                href={link.href}
+                className={
+                  link.highlight
+                    ? 'flex items-center bg-amber-100 text-amber-900 border border-amber-400 px-4 py-2 rounded-full font-bold shadow-sm hover:bg-amber-200 hover:shadow-md transition-all'
+                    : 'text-gray-700 hover:text-blue-600'
+                }
+              >
+                {link.highlight && <HelpCircle className="w-5 h-5 ml-1 shrink-0" />}
                 {link.label}
               </a>
             ))}
@@ -96,8 +108,13 @@ const Header = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-gray-700 hover:text-blue-600"
+                className={
+                  link.highlight
+                    ? 'flex items-center my-2 bg-amber-100 text-amber-900 border border-amber-400 px-4 py-3 rounded-lg font-bold shadow-sm hover:bg-amber-200 transition-colors'
+                    : 'block py-2 text-gray-700 hover:text-blue-600'
+                }
               >
+                {link.highlight && <HelpCircle className="w-5 h-5 ml-2 shrink-0" />}
                 {link.label}
               </a>
             ))}

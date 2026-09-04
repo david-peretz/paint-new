@@ -30,7 +30,7 @@ state library, no tests, no CI.
 `Pricing` is rendered first (above `Hero`) because the price table is the hook:
 
 ```
-Header · Pricing · Catalog · Hero(form) · Services · About · Footer · AccessibilityWidget
+Header · Pricing · Catalog · Hero(form) · Services · About · Faq · Footer · AccessibilityWidget
 ```
 
 Each section owns its `id` for anchor navigation. Component-local `useState` only;
@@ -44,7 +44,8 @@ white/`gray-50` gradients were indistinguishable:
 ```
 Pricing  photo + bg-white/80     Hero      photo + bg-white/90
 Catalog  bg-slate-100 + border   Services  bg-slate-100 + border
-About    bg-white                Footer    bg-gray-800
+About    bg-white                Faq       bg-slate-100 + border
+Footer   bg-gray-800
 ```
 
 Keep no two adjacent sections on the same background. Vertical rhythm is
@@ -76,7 +77,10 @@ splitting as `043-220-` / `6365` mid-number.
   `PHONE_DISPLAY`, `PHONE_TEL` and `WHATSAPP_LINK`; `Header` and `Pricing` import them.
   It was hardcoded 9 times before — don't re-inline it.
 - **Both navs come from one `navLinks` array** in `Header.tsx`. Don't re-inline the links —
-  they drifted before and left three CTAs pointing at an id that never existed.
+  they drifted before and left three CTAs pointing at an id that never existed. A link may
+  carry `highlight: true` (only `#faq` does) — both navs render it as an amber pill.
+- The FAQ section is `Faq.tsx`, not `FAQ.tsx`: `eslint-plugin-react-refresh` reads an
+  ALL-CAPS export as a constant rather than a component and warns on the file.
 - `React` is only imported where `React.*` types are used (`Header`, `Hero`).
   `jsx: react-jsx` makes the import unnecessary for JSX alone, and `noUnusedLocals` will
   fail the typecheck if you add it back.
