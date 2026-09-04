@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="צביעה מקצועית">
+  <title>צביעה מקצועית — סמל</title>
+  <defs>
+    <linearGradient id="stroke" x1="38" y1="22" x2="74" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0E7C86"/>
+      <stop offset=".30" stop-color="#46B87A"/>
+      <stop offset=".66" stop-color="#F2B134"/>
+      <stop offset="1" stop-color="#EE4E5E"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#stroke)" stroke-width="16" stroke-linecap="round">
+    <path d="M43 24.5 L43 96 Q43 101 49 102.5"/>
+    <path d="M43 24.5 A42 19.5 0 1 1 40.8 63.47"/>
+  </g>
+</svg>

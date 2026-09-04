@@ -5,7 +5,22 @@
 export const PHONE_DIGITS = '0542206365';
 export const PHONE_DISPLAY = '054-220-6365';
 export const PHONE_TEL = `tel:${PHONE_DIGITS}`;
-export const WHATSAPP_LINK = `https://wa.me/972${PHONE_DIGITS.substring(1)}`;
+// Pre-filled WhatsApp opener. WhatsApp drops this into the *visitor's* compose box, so
+// it is written in their voice — it opens the conversation and collects the three
+// details we always end up asking for anyway (type of work, size, city).
+export const WHATSAPP_MESSAGE = [
+  'שלום, הגעתי מהאתר של צביעה מקצועית 👋',
+  'אשמח לקבל הצעת מחיר לעבודת צבע, ללא התחייבות.',
+  '',
+  'סוג העבודה (דירה / בית / משרד):',
+  'גודל משוער (מספר חדרים או מ״ר):',
+  'עיר / אזור:',
+  '',
+  'תודה רבה!',
+].join('\n');
+
+export const WHATSAPP_LINK =
+  `https://wa.me/972${PHONE_DIGITS.substring(1)}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 // Where the lead form in Hero.tsx delivers. LEAD_EMAIL is the FormSubmit recipient;
 // LEAD_EMAIL_CC keeps the original address copied on every lead.
