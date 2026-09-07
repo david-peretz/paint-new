@@ -1,6 +1,11 @@
 import React from "react";
-import { CheckCircle, Phone, MessageCircle } from "lucide-react";
-import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_LINK } from "../contact";
+import { CheckCircle, Phone, MessageCircle, Video } from "lucide-react";
+import {
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  WHATSAPP_LINK,
+  WHATSAPP_VIDEO_LINK,
+} from "../contact";
 // The rows and the "what's included" list live in pricing.ts so the Offer markup in
 // JsonLd.tsx quotes the same numbers this table renders.
 import { pricingData, includes, unfurnishedPrice } from "../pricing";
@@ -55,7 +60,7 @@ const Pricing = () => {
               also the first heading in the DOM - which is where a crawler looks for the
               page's subject. Hero's headline is an <h2> for the same reason. */}
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold text-center mb-2 md:mb-8">
-            מחירון צביעת דירות ב{SERVICE_AREA_LABEL}
+            מחירון צביעת דירות ובתים ב{SERVICE_AREA_LABEL}
           </h1>
           <p className="text-sm md:text-2xl font-semibold text-gray-700 text-center max-w-4xl mx-auto mb-4 md:mb-8">
             צביעת דירות ובתים בתל אביב, רמת גן, גבעתיים, פתח תקווה, ראשון לציון וכל
@@ -166,12 +171,44 @@ const Pricing = () => {
             <p className="text-xl sm:text-2xl md:text-4xl font-extrabold mb-6">
               רוצה הצעת מחיר מדויקת?
             </p>
-            <a
-              href="#contact-form"
-              className="inline-block w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-10 py-4 rounded-lg text-lg sm:text-xl md:text-2xl font-extrabold hover:bg-blue-700 transition-colors"
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 justify-center items-stretch">
+              <a
+                href="#contact-form"
+                className="inline-block w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-10 py-4 rounded-lg text-lg sm:text-xl md:text-2xl font-extrabold hover:bg-blue-700 transition-colors"
+              >
+                השאירו פרטים לקבלת הצעת מחיר וייעוץ בחינם!
+              </a>
+              {/* A walk-through clip answers the size/condition questions we would
+                  otherwise ask on the phone, so it is a second, lower-effort lead path. */}
+              <a
+                href={WHATSAPP_VIDEO_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-green-600 text-white px-6 sm:px-10 py-4 rounded-lg text-lg sm:text-xl md:text-2xl font-extrabold hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+              >
+                <Video className="w-6 h-6 md:w-7 md:h-7 shrink-0" />
+                <span>שלחו סרטון בוואטסאפ</span>
+              </a>
+            </div>
+
+            <div
+              className="mt-6 mx-auto max-w-2xl bg-white/90 border border-green-200 rounded-lg p-5 sm:p-6 text-right"
+              dir="rtl"
             >
-              השאירו פרטים לקבלת הצעת מחיר וייעוץ בחינם!
-            </a>
+              <p className="text-lg sm:text-xl font-extrabold mb-3">
+                מה לצלם בדירה כדי לקבל הצעת מחיר מדויקת?
+              </p>
+              <ul className="list-disc pr-5 space-y-2 text-base sm:text-lg font-semibold text-gray-700">
+                <li>סיבוב אחד בכל חדר - קירות מקצה לקצה, כולל התקרה</li>
+                <li>עצירה קצרה על סדקים, רטיבות, כתמים או צבע מתקלף</li>
+                <li>גם המסדרון, המטבח והשירותים - נדע מה כלול ומה לא</li>
+                <li>אמרו בקול מה רוצים לצבוע: קירות בלבד, גם תקרות, דלתות וארונות</li>
+                <li>ציינו אם הדירה מרוהטת או ריקה, ובאיזו עיר וקומה</li>
+              </ul>
+              <p className="mt-3 text-sm sm:text-base text-gray-600">
+                סרטון של דקה-שתיים מספיק. נחזור אליכם עם מחיר עוד באותו היום.
+              </p>
+            </div>
           </div>
         </div>
       </div>

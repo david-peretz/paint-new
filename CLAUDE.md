@@ -8,7 +8,7 @@ Single-page marketing site. The whole product is: show prices, get the visitor t
 ```bash
 npm install          # deps (verified clean, exit 0)
 npm run dev          # Vite dev server on :5173, host:true (LAN-exposed)
-npm run build        # vite build -> dist/   (NO typecheck — see below)
+npm run build        # client build + SSR build + prerender -> dist/  (NO typecheck)
 npm run preview      # serve dist/
 npm run lint         # eslint .
 
@@ -18,6 +18,20 @@ npx tsc --noEmit -p tsconfig.app.json    # typecheck — must be run separately
 **`npm run build` does not typecheck.** `vite build` only transpiles, so type errors ship
 silently. The tree is currently clean (`tsc` 0, `eslint` 0, build 0 warnings) — keep it
 that way by running `tsc --noEmit` explicitly; the build alone will not tell you.
+
+**The build is three steps, not one** (see `package.json`):
+
+```
+vite build                              -> dist/            client bundle
+vite build --ssr src/entry-server.tsx   -> dist-ssr/        throwaway Node bundle
+node scripts/prerender.mjs              -> dist/index.html  markup injected into #root
+```
+
+The third step imports the second's output and runs the component tree in Node, so
+**a component that touches the DOM during render now fails the build.** Every browser
+API on the page (`localStorage` in `Hero`, `document` in `AccessibilityWidget`) sits
+inside an event handler for this reason — handlers never fire during `renderToString`.
+Don't move one into a component body or a `useState` initialiser.
 
 ## Stack
 
@@ -74,8 +88,13 @@ splitting as `043-220-` / `6365` mid-number.
   `space-x-reverse` alongside `space-x-*` or the gaps come out backwards.
 - **All copy is Hebrew, inline in JSX.** No i18n layer. Don't extract strings.
 - **The phone number lives only in `src/contact.ts`.** It exports `PHONE_DIGITS`,
-  `PHONE_DISPLAY`, `PHONE_TEL` and `WHATSAPP_LINK`; `Header` and `Pricing` import them.
-  It was hardcoded 9 times before — don't re-inline it.
+  `PHONE_DISPLAY`, `PHONE_TEL`, `WHATSAPP_LINK` and `WHATSAPP_VIDEO_LINK`; `Header` and
+  `Pricing` import them. It was hardcoded 9 times before — don't re-inline it.
+  Two WhatsApp openers, not one: `WHATSAPP_LINK` asks for work type / size / city,
+  `WHATSAPP_VIDEO_LINK` asks for a walk-through clip instead (the Pricing CTA under
+  "רוצה הצעת מחיר מדויקת?", next to the lead-form button, with the what-to-film list
+  beneath it). Neither WhatsApp button reports an Ads conversion — `gtag_report_conversion`
+  is for `tel:` clicks only.
 - **Both navs come from one `navLinks` array** in `Header.tsx`. Don't re-inline the links —
   they drifted before and left three CTAs pointing at an id that never existed. A link may
   carry `highlight: true` (only `#faq` does) — both navs render it as an amber pill.
@@ -111,7 +130,10 @@ Three data modules exist purely so the page and its structured data cannot disag
   The service-area copy in `Pricing`, `Hero`, `Services`, `About` and `Footer` all
   interpolate `SERVICE_AREA_LABEL`; adding a city to `SERVICE_AREA_CITIES` adds it to
   the footer list and to `areaServed` at once.
-- `src/faqs.ts` — the FAQ text, shared by `Faq.tsx` and the `FAQPage` markup.
+- `src/faqs.ts` — the FAQ text, shared by `Faq.tsx` and the `FAQPage` markup. The
+  three "כמה עולה לצבוע דירת N חדרים" answers read their numbers from `pricing.ts`
+  rather than restating them; `rowFor()` throws if a row it names is gone, and because
+  the prerender step runs this module in Node, that throw fails the build.
 - `src/pricing.ts` — the rows, `unfurnishedPrice()`, and the `includes` list, shared by
   `Pricing.tsx` and the `Offer` markup.
 
@@ -133,16 +155,30 @@ references them — delete them when you are sure you won't want to re-derive th
 The Unsplash URLs in `Hero` and `Services` carry `&w=`; without it Unsplash serves the
 full-resolution original.
 
-The `<noscript>` block in `index.html` is the only content a non-rendering crawler sees,
-since `#root` is empty without JS. It is also the one deliberate exception to the
-phone-number rule below — static HTML cannot import `contact.ts`.
+**There is no `<noscript>` block any more.** There used to be one, because `#root` was
+empty without JS and it was the only thing a non-rendering crawler could read. Prerender
+made it redundant and then harmful: its `<h1>` was a *second* h1 in the shipped HTML,
+competing with Pricing's. Don't add it back — the prerendered markup is the fallback now,
+and the phone and WhatsApp links in it work with JS off (their `onClick` handlers are the
+conversion tracking; the plain `href` still navigates without them).
 
 `public/og-image.jpg` (1200×630) and `public/apple-touch-icon.png` are generated assets,
 not photographs; regenerate them if the branding changes.
 
-**Not done:** the page is still client-rendered. Prerendering `/` to static HTML at build
-time is the single largest remaining SEO win and needs a real dependency
-(`vite-plugin-prerender`, `react-snap` or similar).
+**The page is prerendered.** `scripts/prerender.mjs` renders `<App />` with
+`react-dom/server` and injects the markup into `dist/index.html`; `main.tsx` calls
+`hydrateRoot` when `#root` already has children and `createRoot` when it doesn't, so
+`npm run dev` (empty `#root`) and the built page both work off the same entry. No
+headless browser and no new dependency — `react-dom/server` ships with React.
+
+One known wrinkle: `Footer.tsx` renders `new Date().getFullYear()`, which prerender
+freezes at build time. A build served across a New Year boundary shows the old year and
+logs a hydration text mismatch (React patches the text and carries on). A rebuild fixes
+it; if that ever matters more than it does today, move the year out of render.
+
+**Still not done:** `/` is one URL. Ranking for "צביעת דירה 3 חדרים מחיר", "צביעת בית"
+and per-city queries at the same time needs separate pages, which needs a router — a
+product decision, not a bug. See `docs/WORK-LOG.md`.
 
 ## Conversion tracking — read before touching phone buttons
 

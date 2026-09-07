@@ -40,7 +40,7 @@ const Services = () => {
   return (
     <section id="services" className="py-10 md:py-14 bg-slate-100 border-y border-slate-300">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3">השירותים שלנו</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3">שירותי צביעת דירות ובתים</h2>
         <p className="text-gray-700 text-center max-w-2xl mx-auto mb-8">
           אנו מציעים מגוון רחב של שירותי צביעה מקצועיים ב{SERVICE_AREA_LABEL}, תוך שימוש
           בחומרים האיכותיים ביותר ובטכניקות המתקדמות בענף

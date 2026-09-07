@@ -96,7 +96,7 @@ const Hero = () => {
           {/* An <h2>, not an <h1>: Pricing renders before this section and owns the
               page's single h1. Two h1s would split the page's subject in two. */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-blue-600 mb-4">
-            צבעו את הבית שלכם בסטייל מקצועי
+            רוצים לצבוע את הבית?
           </h2>
           <p className="text-center text-gray-800 max-w-3xl mx-auto mb-6 text-lg">
             הצוות המנוסה שלנו מבצע צביעה מקצועית בקפידה בכל {SERVICE_AREA_LABEL}, תוך

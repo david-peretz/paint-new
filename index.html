@@ -38,12 +38,18 @@
          where it can be built from contact.ts / faqs.ts / pricing.ts instead of being
          retyped here and drifting out of sync.
 
+         Since the build prerenders the page (scripts/prerender.mjs), that JSON-LD and
+         every visible word now land in dist/index.html too - no renderer required.
+         These tags still belong here rather than in React: index.html is where they
+         are readable without running a build, and prerendering is not a reason to move
+         them into a component.
+
          The domain is a placeholder until one exists. It appears in three places:
          this block, src/seo.ts (SITE_URL) and public/sitemap.xml. Change all three. -->
-    <title>מחירון צביעת דירות בגוש דן והמרכז | צביעה מקצועית</title>
+    <title>כמה עולה לצבוע דירה? מחירון צביעת דירות ובתים בגוש דן</title>
     <meta
       name="description"
-      content="מחירון צביעת דירות מלא ושקוף: דירת 3 חדרים מ-₪3,000, 4 חדרים ו-5 חדרים. צביעת דירות, בתים ועסקים בתל אביב, רמת גן, פתח תקווה וכל המרכז. הצעת מחיר וייעוץ ללא עלות."
+      content="כמה עולה לצבוע דירה? דירת 3 חדרים מ-₪3,000, 4 חדרים מ-₪3,800, 5 חדרים מ-₪4,800. צביעת דירות ובתים בתל אביב, רמת גן, פתח תקווה וכל המרכז. הצעת מחיר ללא עלות."
     />
     <link rel="canonical" href="https://www.example.co.il/" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -52,21 +58,21 @@
     <meta property="og:site_name" content="צביעה מקצועית" />
     <meta property="og:locale" content="he_IL" />
     <meta property="og:url" content="https://www.example.co.il/" />
-    <meta property="og:title" content="מחירון צביעת דירות בגוש דן והמרכז | צביעה מקצועית" />
+    <meta property="og:title" content="כמה עולה לצבוע דירה? מחירון צביעת דירות ובתים בגוש דן" />
     <meta
       property="og:description"
-      content="מחירון שקוף לצביעת דירות בגוש דן ובמרכז - 3, 4 ו-5 חדרים. צבע איכותי, הגנה על הרהיטים וניקיון בסיום. הצעת מחיר ללא עלות."
+      content="מחירון שקוף לצביעת דירות ובתים - 3 חדרים מ-₪3,000, 4 חדרים מ-₪3,800, 5 חדרים מ-₪4,800. מחיר סגור מראש והצעת מחיר ללא עלות."
     />
     <meta property="og:image" content="https://www.example.co.il/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="צביעה מקצועית - מחירון צביעת דירות בגוש דן והמרכז" />
+    <meta property="og:image:alt" content="צביעה מקצועית - מחירון צביעת דירות ובתים בגוש דן והמרכז" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="מחירון צביעת דירות בגוש דן והמרכז | צביעה מקצועית" />
+    <meta name="twitter:title" content="כמה עולה לצבוע דירה? מחירון צביעת דירות ובתים בגוש דן" />
     <meta
       name="twitter:description"
-      content="מחירון שקוף לצביעת דירות בגוש דן ובמרכז - 3, 4 ו-5 חדרים. הצעת מחיר ללא עלות."
+      content="כמה עולה לצבוע דירה? 3 חדרים מ-₪3,000, 4 חדרים מ-₪3,800, 5 חדרים מ-₪4,800. הצעת מחיר ללא עלות."
     />
     <meta name="twitter:image" content="https://www.example.co.il/og-image.jpg" />
     <!-- =================== end SEO =================== -->
@@ -118,28 +124,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <noscript>
-      <!-- The page is a client-rendered SPA: without JavaScript #root is empty. This is
-           the only content a non-rendering crawler or a link scraper can read, so it
-           carries the business, the service area and a working phone link. -->
-      <div dir="rtl" style="max-width: 40rem; margin: 2rem auto; padding: 0 1.5rem; font-family: sans-serif; line-height: 1.7;">
-        <h1>מחירון צביעת דירות בגוש דן והמרכז</h1>
-        <p>
-          צביעה מקצועית - צביעת דירות, בתים ועסקים בתל אביב, רמת גן, גבעתיים, בני ברק,
-          פתח תקווה, ראשון לציון, חולון, בת ים, הרצליה, כפר סבא ורעננה.
-        </p>
-        <p>
-          מחירון (לפני מע"מ, לא כולל תקרות): דירת 3 חדרים החל מ-3,000 ש"ח, דירת 4 חדרים
-          החל מ-3,800 ש"ח, דירת 5 חדרים החל מ-4,800 ש"ח. המחיר כולל צבע איכותי של נירלט
-          או טמבור, תיקוני שפכטל קלים, הגנה על הרהיטים והרצפה וניקיון בסיום.
-        </p>
-        <!-- The one deliberate exception to "the phone number lives only in contact.ts":
-             static HTML cannot import a module, and a <noscript> block without a phone
-             number defeats its own purpose. If the number changes, it changes here too. -->
-        <p>לקבלת הצעת מחיר וייעוץ ללא עלות: <a href="tel:0542206365">054-220-6365</a></p>
-        <p>האתר דורש JavaScript לתצוגה מלאה.</p>
-      </div>
-    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

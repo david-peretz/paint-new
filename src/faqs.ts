@@ -5,12 +5,50 @@
 //
 // A file of its own (rather than an export from Faq.tsx) because
 // eslint-plugin-react-refresh warns on non-component exports from a component file.
+import { pricingData, unfurnishedPrice, type PricingRow } from './pricing';
+
 export type Faq = {
   question: string;
   answer: string;
 };
 
+// The three price answers quote the price table instead of repeating its numbers.
+// pricing.ts is already the single copy the visible table and the Offer markup share;
+// an FAQ answer that stated "₪3,000" in prose would be a fourth copy waiting to
+// contradict them. A row this file names but pricing.ts does not have throws at module
+// load - which now happens during `npm run build`, inside scripts/prerender.mjs, so a
+// renamed row fails the build instead of shipping a broken page.
+const rowFor = (type: string): PricingRow => {
+  const row = pricingData.find((candidate) => candidate.type === type);
+  if (!row) {
+    throw new Error(`faqs.ts quotes a price for "${type}", which pricing.ts has no row for`);
+  }
+  return row;
+};
+
+const shekels = (amount: number) => `₪${amount.toLocaleString('en-US')}`;
+const empty = (type: string) => shekels(unfurnishedPrice(rowFor(type)));
+const furnished = (type: string) => shekels(rowFor(type).furnishedPrice);
+
 export const faqs: Faq[] = [
+  {
+    question: 'כמה עולה לצבוע דירת 3 חדרים?',
+    answer:
+      `דירת 3 חדרים ריקה נצבעת ב-${empty('3 חדרים')} ודירה מרוהטת ב-${furnished('3 חדרים')}, לפני מע"מ ולא כולל תקרות. ` +
+      'המחיר סגור מראש וכולל את הצבע, תיקוני שפכטל קלים, הגנה על הרהיטים והרצפה וניקיון בסיום. העבודה נמשכת בדרך כלל יום עד יומיים.',
+  },
+  {
+    question: 'כמה עולה לצבוע דירת 4 חדרים?',
+    answer:
+      `דירת 4 חדרים ריקה נצבעת ב-${empty('4 חדרים')} ודירה מרוהטת ב-${furnished('4 חדרים')}, לפני מע"מ ולא כולל תקרות. ` +
+      'ההפרש בין ריקה למרוהטת הוא עבודת כיסוי הרהיטים וסידורם בסיום, כך שפינוי מוקדם של מה שאפשר מוזיל את העבודה בפועל.',
+  },
+  {
+    question: 'כמה עולה לצבוע דירת 5 חדרים?',
+    answer:
+      `דירת 5 חדרים ריקה נצבעת ב-${empty('5 חדרים')} ודירה מרוהטת ב-${furnished('5 חדרים')}, לפני מע"מ ולא כולל תקרות. ` +
+      'בדירה בגודל הזה כדאי לסגור מראש בהצעת המחיר גם את התקרות ואת חדרי השירות, כדי שהסכום שתקבלו יהיה סופי. העבודה נמשכת כשלושה ימים.',
+  },
   {
     question: 'כמה זמן לוקחת צביעת דירה?',
     answer:

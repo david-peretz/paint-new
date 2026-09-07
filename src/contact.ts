@@ -27,3 +27,18 @@ export const WHATSAPP_LINK =
 export const LEAD_EMAIL = 'assafbiton@gmail.com';
 export const LEAD_EMAIL_CC = 'david82761@gmail.com';
 export const LEAD_SUBJECT = 'עבודות צבע פנייה מהאתר';
+
+// Second WhatsApp opener, for the "send us a video" CTA in Pricing. Same voice as
+// WHATSAPP_MESSAGE, but it asks for a walk-through clip instead of the three details —
+// a video answers all of them at once and lets us quote without a site visit.
+export const WHATSAPP_VIDEO_MESSAGE = [
+  'שלום, הגעתי מהאתר של צביעה מקצועית 🎨',
+  'מצרף/ת סרטון של הדירה לקבלת הצעת מחיר מדויקת.',
+  '',
+  'עיר / אזור:',
+  '',
+  'תודה רבה!',
+].join('\n');
+
+export const WHATSAPP_VIDEO_LINK =
+  `https://wa.me/972${PHONE_DIGITS.substring(1)}?text=${encodeURIComponent(WHATSAPP_VIDEO_MESSAGE)}`;
